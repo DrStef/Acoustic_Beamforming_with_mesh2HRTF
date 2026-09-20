@@ -24,14 +24,6 @@ Company page: [bloo-audio.com/array51](https://www.bloo-audio.com/array51/)
 - Evaluation on a 1 m sphere (~1850 points)
 - Check against a reference FEM/BEM model: magnitude within ~0.2 dB, phase matched after the \(e^{\pm j\omega t}\) convention (`-angle` on NumCalc)
 
-
-
-
-
-
-
-
-
 ## Contents
 
 1. Sphere / piston and point-source **validation** (Ico mesh)
@@ -39,3 +31,38 @@ Company page: [bloo-audio.com/array51](https://www.bloo-audio.com/array51/)
 3. Figures (look-direction TFs, example directivity balloons)
 
 Mesh2HRTF: [mesh2hrtf.org](https://mesh2hrtf.org/)
+
+
+
+## Part I — Validation of the Mesh2HRTF BEM solver
+
+Rigid sphere, radius \(a = 0.1\,\mathrm{m}\). Ico-5 mesh: 5120 faces, mean edge \(\approx 7.5\,\mathrm{mm}\) (\(\approx\lambda/6\) at 8 kHz, \(c = 346.18\,\mathrm{m/s}\)).  
+Evaluation at \(r = 10\,\mathrm{m}\) (and 1.5 m for near-field checks).
+
+### Point-source standoff
+
+Wiki floor: source \(\geq 0.3\,\mathrm{mm}\) outside the skin.  
+Kreuzer: about one mean edge. We scanned **5 / 2 / 1 mm** on \(+x\).
+
+standoff | x (m) | high frequency | low frequency
+--- | --- | --- | ---
+5 mm | 0.105 | drop above 5 kHz (0 and 30 deg) | good
+2 mm | 0.102 | best, near 6 dB baffle step | good
+1 mm | 0.101 | crushed above 3 kHz, ~5.5 dB at 7–8 kHz | best LF collapse to 0 dB
+
+**Working choice: 2 mm.** Same offset used later on the headset.
+
+### Other checks
+
+- Ico vs UV body mesh: elongated polar triangles on UV pollute 100 Hz and poles; Ico does not
+- FMM cluster diameter 0.05 vs 0.025 m: **no change** on the look TF
+- Piston vs point: piston needs the area factor \(S\); point uses \(P_0=1\) i.e. \(e^{ikR}/(4\pi R)\). At 1 m, \(20\log_{10}(4\pi)\approx +22\,\mathrm{dB}\) to reach 1 Pa
+
+Figures: Ico balloon / \(|H(\phi)|\) at 0–150°, 100 Hz–8 kHz (notebook `SPHERE`).
+
+
+
+
+
+
+
