@@ -61,6 +61,24 @@ standoff | x (m) | high frequency | low frequency
 Figures: Ico balloon / \(|H(\phi)|\) at 0–150°, 100 Hz–8 kHz (notebook `SPHERE`).
 
 
+## Solver
+
+NumCalc solves the Helmholtz equation with a **Burton–Miller collocation BEM**.
+Optionally the **multilevel fast multipole method (ML-FMM)** replaces
+element-to-element coupling by cluster-to-cluster coupling.
+We used ML-FMM (cluster diameter 0.05 m). Changing it to 0.025 m did not
+change the look-direction TFs on this mesh.
+
+References: Kreuzer et al. 2024; Brinkmann et al. JAES 2023.
+
+
+
+
+
+
+
+
+
 
 
 
