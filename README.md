@@ -71,6 +71,14 @@ change the look-direction TFs on this mesh.
 
 References: Kreuzer et al. 2024; Brinkmann et al. JAES 2023.
 
+Doc pratique  Wiki : https://github.com/Any2HRTF/Mesh2HRTF/wiki  
+Site : https://mesh2hrtf.org/  
+API Python : https://mesh2hrtf.readthedocs.io/
+
+Théorie (à citer, pas à recopier)  BEM tête / maillage : Ziegelwanger, Majdak, Kreuzer, JASA 2015  
+Pipeline Mesh2HRTF : Brinkmann et al., JAES 2023  
+NumCalc (solver) : Kreuzer et al., Eng. Anal. Bound. Elem. 2024 — Burton–Miller + FMM
+
 
 
 
