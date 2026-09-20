@@ -2,7 +2,7 @@
 
 Numerical TFs for a 4-microphone array on a dummy + headset. Open BEM (Mesh2HRTF / NumCalc). Comparison with a reference FEM/BEM model. Beamforming examples use these TFs; the optimizer itself is not published.
 
-# KEMAR + VR headset: Mesh2HRTF BEM
+## KEMAR + VR headset: the CAD file
 
 High-resolution geometry of a KEMAR-style head integrated with a **generic** VR headset.  
 Used as the domain for **open-source BEM** (Mesh2HRTF / NumCalc) to compute microphone transfer functions.
