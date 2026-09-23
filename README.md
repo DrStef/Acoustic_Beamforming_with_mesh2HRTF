@@ -124,7 +124,21 @@ A five-subdivision Ico mesh ($20\,480$ faces, $h \approx 3.8\,\mathrm{mm}$)
 would put $\lambda/6$ well above $8\,\mathrm{kHz}$ if a tighter high-frequency
 check is required.
 
-### Residual discrepancies
+### Results and residual discrepancies
+
+We compare two fields that reciprocity says should agree closely:
+
+- the analytical rigid-sphere scattering of a plane wave (Morse []);
+- a Mesh2HRTF / NumCalc BEM run with a point source $2\,\mathrm{mm}$ outside the skin, pressure sampled at $r = 10\,\mathrm{m}$ from $0^\circ$ to $180^\circ$ in a meridional plane.
+
+The two problems are not identical, but the far-field patterns should match. They do, to a fraction of a decibel over most of the $100\,\mathrm{Hz}$–$8\,\mathrm{kHz}$ band.
+
+
+|<p align="center"> <img src="./pictures/Blender_Sphere_BEM.png" alt="Sphere validation" width="55%">  </p>  |<p align="center"> <img src="./pictures/Sphere_PointSource_1kHz.png" alt="Sphere validation" width="90%">  </p> |
+|                              ---                                               |  -----   |
+| <p align="center"> <i> BEM model - Rigid Sphere   radius a=0.1m <br> 5120 triangular elements, 2562 nodes (Blender) </i> </p>   |    <p align="center"> <i> mshr2HSRTF: Pressure field on boundary 1kHz <br> point source at (x,y,z)=(0.102,0,0) m </i>        </p>              |
+
+
 
 **Low frequency** (\(50\)–\(100\,\mathrm{Hz}\), \(ka \approx 0.1\)–\(0.2\)).  
 The analytical field is essentially isotropic (\(\sim 0\,\mathrm{dB}\) spread across angles).
