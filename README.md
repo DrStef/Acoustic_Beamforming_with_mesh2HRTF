@@ -78,7 +78,7 @@ API Python : https://mesh2hrtf.readthedocs.io/
 Théorie (à citer, pas à recopier)  BEM tête / maillage : Ziegelwanger, Majdak, Kreuzer, JASA 2015  
 Pipeline Mesh2HRTF : Brinkmann et al., JAES 2023  
 NumCalc (solver) : Kreuzer et al., Eng. Anal. Bound. Elem. 2024 — Burton–Miller + FMM
-
+Morse and Ingrad (1968)
 
 # Sphere validation — plane wave vs reciprocal point source
 
@@ -177,7 +177,12 @@ is sufficient to state in the text.
 
 
 
+## References
 
+Théorie (à citer, pas à recopier)  BEM tête / maillage : Ziegelwanger, Majdak, Kreuzer, JASA 2015  
+Pipeline Mesh2HRTF : Brinkmann et al., JAES 2023  
+NumCalc (solver) : Kreuzer et al., Eng. Anal. Bound. Elem. 2024 — Burton–Miller + FMM
+Morse and Ingard, "Theoretical Acoustics" (1968)
 
 
 
