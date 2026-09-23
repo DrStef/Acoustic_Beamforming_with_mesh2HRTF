@@ -80,7 +80,7 @@ Pipeline Mesh2HRTF : Brinkmann et al., JAES 2023
 NumCalc (solver) : Kreuzer et al., Eng. Anal. Bound. Elem. 2024 — Burton–Miller + FMM
 
 
-## Sphere validation — plane wave vs reciprocal point source
+# Sphere validation — plane wave vs reciprocal point source
 
 We compare two related but distinct problems that should agree closely
 on the rigid-sphere boundary and, by reciprocity, at far-field points
@@ -95,6 +95,8 @@ Overall the match is excellent from \(100\,\mathrm{Hz}\) to \(8\,\mathrm{kHz}\)
 
 
 ###  BEM model
+
+The rigid sphere and its Ico mesh were built in Blender, then exported with the Mesh2HRTF preprocessor (`mesh2input`) to generate the NumCalc input (`NC.inp` and surface meshes).
 
 The rigid-sphere mesh is an icosahedral triangulation with **4 subdivisions**
 (**5120 triangular elements**, **2562 nodes**). The mean edge length is
