@@ -134,7 +134,7 @@ We compare two fields that reciprocity says should agree closely:
 The two problems are not identical, but the far-field patterns should match. They do, to a fraction of a decibel over most of the $100\,\mathrm{Hz}$–$8\,\mathrm{kHz}$ band.
 
 
-|<p align="center"> <img src="./pictures/Sphere_PresPlaneWav_001.png" alt="Sphere validation" width="55%">  </p>  |<p align="center"> <img src="./pictures/Sphere_TFs_FarField_001.png" alt="Sphere validation" width="90%">  </p> |
+|<p align="center"> <img src="./pictures/Sphere_PresPlaneWav_001.png" alt="Sphere validation" width="80%">  </p>  |<p align="center"> <img src="./pictures/Sphere_TFs_FarField_001.png" alt="Sphere validation" width="90%">  </p> |
 |                              ---                                               |  -----   |
 | <p align="center"> <i> BEM model - Rigid Sphere   radius a=0.1m <br> 5120 triangular elements, 2562 nodes (Blender) </i> </p>   |    <p align="center"> <i> mshr2HSRTF: Pressure field on boundary 1kHz <br> point source at (x,y,z)=(0.102,0,0) m </i>        </p>              |
 
