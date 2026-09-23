@@ -110,7 +110,7 @@ f_{\lambda/6} = \frac{c}{6h} \approx 7.7\,\mathrm{kHz}.
 $$
 
 
-|<p align="center"> <img src="./pictures/Blender_Sphere_BEM.png" alt="Sphere validation" width="40%">  </p>  |<p align="center"> <img src="./pictures/Sphere_PointSource_1kHz.png" alt="Sphere validation" width="40%">  </p> |
+|<p align="center"> <img src="./pictures/Blender_Sphere_BEM.png" alt="Sphere validation" width="60%">  </p>  |<p align="center"> <img src="./pictures/Sphere_PointSource_1kHz.png" alt="Sphere validation" width="80%">  </p> |
 |                              ---                                               |  -----   |
 | <p align="center"> <i> BEM model - Rigid Sphere   radius a=0.1m (Blender) </i> </p>   |    <p align="center"> <i> mshr2HSRTF: Pressure field 1kHz - point source at x=0.102 m </i>        </p>              |
 
