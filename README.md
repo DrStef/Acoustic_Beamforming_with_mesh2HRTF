@@ -180,6 +180,11 @@ point source for surface microphones, keep an eye on the low-frequency angular
 spread and the mild high-frequency look-direction loss, and add a targeted
 check when a new mesh or frequency grid is introduced.
 
+More mature commercial BEM codes pass the $ka \approx 0.1$ test to a few hundredths of a dB. Mesh2HRTF does not: the $0.3\,\mathrm{dB}$ front-to-back tilt is a low-frequency discretisation / quadrature error.
+
+That matters for **low-frequency array design**. In a superdirective beamformer (MVDR, LCMV) a few tenths of a dB of false magnitude — and the associated phase — change the white-noise gain and the realised directivity. Treat Mesh2HRTF TFs below a few hundred hertz with extra regularisation, or cross-check that band with another solver, before freezing weights.
+
+
 Do not publish third-party trial FEM/BEM field plots. A magnitude agreement
 of about \(0.2\,\mathrm{dB}\) (phase aligned after the \(e^{\pm j\omega t}\) convention)
 is sufficient to state in the text.
