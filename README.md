@@ -110,9 +110,9 @@ f_{\lambda/6} = \frac{c}{6h} \approx 7.7\,\mathrm{kHz}.
 $$
 
 
-|<p align="center"> <img src="./pictures/Blender_Sphere_BEM.png" alt="Sphere validation" width="50%">  </p>  |
-|                              ---                                               |
-| <p align="center"> <i> BEM model - Rigid Sphere   radius a=0.1m </i>        </p>         |
+|<p align="center"> <img src="./pictures/Blender_Sphere_BEM.png" alt="Sphere validation" width="40%">  </p>  |<p align="center"> <img src="./pictures/Sphere_PointSource_1kHz.png" alt="Sphere validation" width="40%">  </p> |
+|                              ---                                               |  -----   |
+| <p align="center"> <i> BEM model - Rigid Sphere   radius a=0.1m (Blender) </i> </p>   |    <p align="center"> <i> mshr2HSRTF: Pressure field 1kHz - point source at x=0.102 m </i>        </p>              |
 
 At $8\,\mathrm{kHz}$ the mesh is slightly coarser than $\lambda/6$
 ($\approx\lambda/5.75$). Burton–Miller collocation BEM often needs **more than
