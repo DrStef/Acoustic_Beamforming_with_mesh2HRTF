@@ -136,7 +136,7 @@ The two problems are not identical, but the far-field patterns should match. The
 
 |<p align="center"> <img src="./pictures/Sphere_PresPlaneWav_001.png" alt="Sphere validation" width="80%">  </p>  |<p align="center"> <img src="./pictures/Sphere_TFs_FarField_001.png" alt="Sphere validation" width="90%">  </p> |
 |                              ---                                               |  -----   |
-| <p align="center"> <i> Analytical Model - Sound pressure on the sphere <br> Plane  z=0  - Various angles </i> </p>   |    <p align="center"> <i> mshr2HSRTF BEM Model - Sound pressure oat 10 m  <br> Plane  z=0  - Various angles </i>        </p>              |
+| <p align="center"> <i> Analytical Model - Sound pressure on the sphere <br> Plane  z=0  - Various angles </i> </p>   |    <p align="center"> <i> mshr2HSRTF BEM Model - Sound pressure at 10 m  <br> Plane  z=0  - Various angles </i>        </p>              |
 
 
 
