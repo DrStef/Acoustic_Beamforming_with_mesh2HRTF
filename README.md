@@ -184,6 +184,10 @@ Pipeline Mesh2HRTF : Brinkmann et al., JAES 2023
 NumCalc (solver) : Kreuzer et al., Eng. Anal. Bound. Elem. 2024 — Burton–Miller + FMM
 Morse and Ingard, "Theoretical Acoustics" (1968)
 
+[4] P. M. Morse and K. U. Ingard, *Theoretical Acoustics*,
+Princeton University Press, Princeton, NJ, 1986
+(reprint of the 1968 McGraw-Hill edition).
+ISBN 0-691-02401-4.
 
 
 
