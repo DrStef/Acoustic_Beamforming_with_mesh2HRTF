@@ -111,8 +111,8 @@ $$
 
 
 |<img src="./pictures/Blender_Sphere_BEM.png" alt="Sphere validation" width="80%">|
-|  ---     |
-|   BEM model - Rigid Sphere   radius a=0.1m      |
+|                              ---                                               |
+|  <i> BEM model - Rigid Sphere   radius a=0.1m </i>                             |
 
 At $8\,\mathrm{kHz}$ the mesh is slightly coarser than $\lambda/6$
 ($\approx\lambda/5.75$). Burton–Miller collocation BEM often needs **more than
