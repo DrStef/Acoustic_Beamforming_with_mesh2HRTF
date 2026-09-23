@@ -91,7 +91,8 @@ at \(r = 10\,\mathrm{m}\):
   used as a reciprocal stand-in for a surface microphone.
 
 \(|p|\) is reported on the boundary at \(0^\circ, 30^\circ, 60^\circ, 90^\circ, 120^\circ, 150^\circ, 180^\circ\).
-Overall the match is excellent from \(100\,\mathrm{Hz}\) to \(8\,\mathrm{kHz}\).
+Overall the match is excellent from \(100\,\mathrm{Hz}\) to \(8\,\mathrm{kHz}\)
+
 
 ###  BEM model
 
@@ -105,6 +106,11 @@ With $c = 346.18\,\mathrm{m/s}$, the usual rule of six elements per wavelength
 $$
 f_{\lambda/6} = \frac{c}{6h} \approx 7.7\,\mathrm{kHz}.
 $$
+
+
+<img src="./pictures/image.png" alt="Sphere validation" width="80%">
+
+
 
 At $8\,\mathrm{kHz}$ the mesh is slightly coarser than $\lambda/6$
 ($\approx\lambda/5.75$). Burton–Miller collocation BEM often needs **more than
