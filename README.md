@@ -80,7 +80,53 @@ Pipeline Mesh2HRTF : Brinkmann et al., JAES 2023
 NumCalc (solver) : Kreuzer et al., Eng. Anal. Bound. Elem. 2024 — Burton–Miller + FMM
 
 
+## Sphere validation — plane wave vs reciprocal point source
 
+We compare two related but distinct problems that should agree closely
+on the rigid-sphere boundary and, by reciprocity, at far-field points
+at \(r = 10\,\mathrm{m}\):
+
+- analytical scattering of a plane wave (Morse);
+- a point source placed a few millimetres outside the skin (Mesh2HRTF / NumCalc),
+  used as a reciprocal stand-in for a surface microphone.
+
+\(|p|\) is reported on the boundary at \(0^\circ, 30^\circ, 60^\circ, 90^\circ, 120^\circ, 150^\circ, 180^\circ\).
+Overall the match is excellent from \(100\,\mathrm{Hz}\) to \(8\,\mathrm{kHz}\).
+
+### Residual discrepancies
+
+**Low frequency** (\(50\)–\(100\,\mathrm{Hz}\), \(ka \approx 0.1\)–\(0.2\)).  
+The analytical field is essentially isotropic (\(\sim 0\,\mathrm{dB}\) spread across angles).
+Mesh2HRTF shows a slightly larger angular variance, about \(0.3\)–\(0.4\,\mathrm{dB}\).
+
+**High frequency** (around \(ka = 10\)).  
+On the illuminated side (\(0^\circ\) and \(30^\circ\)) the computed amplitude sags by about \(0.2\,\mathrm{dB}\).
+The same droop appears in other Mesh2HRTF validations. Likely causes are the
+Burton–Miller discretisation, FMM clustering, and/or the quadrature — not the
+geometry itself.
+
+**Parameters that do *not* move the look-direction TF.**  
+FMM cluster diameter \(0.05\,\mathrm{m}\) vs \(0.025\,\mathrm{m}\) has no significant effect
+on this Ico-5 mesh.
+
+**Parameter that *does* matter.**  
+Point-source standoff from the skin. After a \(5 / 2 / 1\,\mathrm{mm}\) scan on \(+x\),
+**\(2\,\mathrm{mm}\)** is the working choice (clean high-frequency baffle step,
+acceptable low-frequency collapse). The same offset is used later for headset
+microphone positions.
+
+### Practical conclusion
+
+Treat Mesh2HRTF as a solid open BEM tool for research and array design —
+MVDR / LCMV, binaural beamforming, and SSL — in the **\(100\)–\(8000\,\mathrm{Hz}\)**
+band that matters for AR/VR devices. Use a \(\sim 2\,\mathrm{mm}\) reciprocal
+point source for surface microphones, keep an eye on the low-frequency angular
+spread and the mild high-frequency look-direction loss, and add a targeted
+check when a new mesh or frequency grid is introduced.
+
+Do not publish third-party trial FEM/BEM field plots. A magnitude agreement
+of about \(0.2\,\mathrm{dB}\) (phase aligned after the \(e^{\pm j\omega t}\) convention)
+is sufficient to state in the text.
 
 
 
