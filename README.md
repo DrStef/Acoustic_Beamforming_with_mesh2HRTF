@@ -93,6 +93,29 @@ at \(r = 10\,\mathrm{m}\):
 \(|p|\) is reported on the boundary at \(0^\circ, 30^\circ, 60^\circ, 90^\circ, 120^\circ, 150^\circ, 180^\circ\).
 Overall the match is excellent from \(100\,\mathrm{Hz}\) to \(8\,\mathrm{kHz}\).
 
+###  BEM model
+
+The rigid-sphere mesh is an icosahedral triangulation with **4 subdivisions**
+(**5120 triangular elements**, **2562 nodes**). The mean edge length is
+**$h \approx 7.53\,\mathrm{mm}$** (about $7.5\,\mathrm{mm}$).
+
+With $c = 346.18\,\mathrm{m/s}$, the usual rule of six elements per wavelength
+($\lambda/6$) holds up to
+
+$$
+f_{\lambda/6} = \frac{c}{6h} \approx 7.7\,\mathrm{kHz}.
+$$
+
+At $8\,\mathrm{kHz}$ the mesh is slightly coarser than $\lambda/6$
+($\approx\lambda/5.75$). Burton–Miller collocation BEM often needs **more than
+six elements per wavelength** at high $ka$, so part of the residual mismatch
+above $ka \approx 10$ ($\approx 5.5\,\mathrm{kHz}$) — in particular the
+$0.2\,\mathrm{dB}$ drop at $0^\circ$ and $30^\circ$ toward $6$–$8\,\mathrm{kHz}$ —
+is consistent with discretisation / quadrature rather than a geometry error.
+A five-subdivision Ico mesh ($20\,480$ faces, $h \approx 3.8\,\mathrm{mm}$)
+would put $\lambda/6$ well above $8\,\mathrm{kHz}$ if a tighter high-frequency
+check is required.
+
 ### Residual discrepancies
 
 **Low frequency** (\(50\)–\(100\,\mathrm{Hz}\), \(ka \approx 0.1\)–\(0.2\)).  
