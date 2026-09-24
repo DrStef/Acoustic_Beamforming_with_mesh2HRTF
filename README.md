@@ -7,6 +7,42 @@ Numerical TFs for a 4-microphone array on a dummy + headset. Open BEM (Mesh2HRTF
 High-resolution geometry of a KEMAR-style head integrated with a **generic** VR headset.  
 Used as the domain for **open-source BEM** (Mesh2HRTF / NumCalc) to compute microphone transfer functions.
 
+## Geometry
+
+This is an in-house concept mesh for open BEM (Mesh2HRTF / NumCalc).
+It is **not** a vendor product and is **not** affiliated with any commercial
+VR headset.
+
+### Head and torso
+
+KEMAR-style dummy CAD developed at **ICAR**
+(*Infrastructure commune en acoustique pour la recherche*,
+ÉTS–IRSST, École de technologie supérieure, Montréal).
+
+### Headset
+
+A high-quality generic VR-headset CAD by **Chris Leung** on GrabCAD:
+https://grabcad.com/chris.leung-5/models
+
+The headset was simplified and edited: the headband was reduced to about
+$5$–$6\,\mathrm{cm}$ width. The edited headset was then merged with the
+KEMAR-style dummy into a single watertight skin.
+
+The working file distributed here is an **STL** surface mesh (plus the
+Mesh2HRTF `ObjectMeshes` export).
+
+### What the mesh is for
+
+- beamforming (MVDR / LCMV)
+- sound-source localisation
+- binaural beamforming
+- Ambisonics / array processing on a dummy + headset
+
+Microphone examples in this repo use a small linear subset on one side of
+the headset (2.5 cm spacing). Reciprocal point sources sit $2\,\mathrm{mm}$
+off the skin.
+
+
 This repository documents **validation** and **far-field TFs** for a 4-microphone subset of the array.  
 Beamforming examples (MVDR, near-field) can be built from these TFs; **the optimizer is not published**.
 
