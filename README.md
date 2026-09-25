@@ -301,10 +301,6 @@ Company page: [bloo-audio.com/array51](https://www.bloo-audio.com/array51/)
 Mesh2HRTF: [mesh2hrtf.org](https://mesh2hrtf.org/)
 
 
-
-
-
-
 KEMAR-style dummy + generic VR headset (see Geometry). Four reciprocal
 **point sources** sit $2\,\mathrm{mm}$ off the skin at the microphone
 seats, $2.5\,\mathrm{cm}$ apart on a **linear** end-fire line along the
@@ -322,9 +318,11 @@ TFs: $H_m(f;\mathbf{r})$ at microphones $m=1,2,3,4$. MVDR weights use
 these TFs with a white-noise-gain floor ($-25\,\mathrm{dB}$ below
 $500\,\mathrm{Hz}$, ramping to $-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$).
 
-<img src="./pictures/array51_kemar_VR_headset_pboundary_mics4.png" alt="|p| on the skin, one point source" width="700">
+<img src="./pictures/array51_kemar_VR_headset_mics1234.png" alt="Four microphone seats" width="400">
 
-<img src="./pictures/array51_kemar_VR_headset_mics1234.png" alt="Four microphone seats" width="700">
+<img src="./pictures/array51_kemar_VR_headset_pboundary_mics4.png" alt="|p| on the skin, one point source" width="400">
+
+
 
 Boundary $|p|$ for one $2\,\mathrm{mm}$ point source (vertex-interpolated
 display). The optimiser is not published; the TFs are.
