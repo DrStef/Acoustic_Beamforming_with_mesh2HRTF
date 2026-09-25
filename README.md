@@ -44,6 +44,12 @@ Units are **metres**.
 The published STL is rebuilt from Mesh2HRTF `Nodes.txt` / `Elements.txt`
 with a neutral header (not a vendor export).
 
+The skin is **not** a topological sphere. A gap between the headset strap
+and the head, just forward of each pinna, makes two handles
+(homeomorphic to a sphere with two handles, genus 2). BEM treats the
+surface as a rigid sound-hard boundary; the strap–head tunnels are part
+of the exterior domain. 
+
 ### What the mesh is for
 
 - beamforming (MVDR / LCMV)
