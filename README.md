@@ -31,6 +31,19 @@ KEMAR-style dummy into a single watertight skin.
 The working file distributed here is an **STL** surface mesh (plus the
 Mesh2HRTF `ObjectMeshes` export).
 
+## Coordinates and units
+
+Units are **metres**.
+
+- Origin: midway between the two ear-canal / pinna references.
+- $+x$: look-ahead (nose / headset front).
+- $+y$: left–right axis through the two ears (sign: state whether $+y$ is
+  **left** or **right** when you check in Blender).
+- $+z$: up.
+
+The published STL is rebuilt from Mesh2HRTF `Nodes.txt` / `Elements.txt`
+with a neutral header (not a vendor export).
+
 ### What the mesh is for
 
 - beamforming (MVDR / LCMV)
