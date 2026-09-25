@@ -245,7 +245,29 @@ of about \(0.2\,\mathrm{dB}\) (phase aligned after the \(e^{\pm j\omega t}\) con
 is sufficient to state in the text.
 
 
+## Part II: Microphone array I — far field, fixed look $(1,0,0)$
 
+KEMAR-style dummy + generic VR headset (see Geometry). Four reciprocal
+**point sources** sit $2\,\mathrm{mm}$ off the skin at the microphone
+seats, $2.5\,\mathrm{cm}$ apart on a **linear** end-fire line along the
+headset. By reciprocity, each BEM run is a transfer function from that
+seat to the field — or from a field point back to the seat.
+
+The design look is the far-field / $1\,\mathrm{m}$ station
+$\mathbf{r}_{\mathrm{look}}=(1,0,0)\,\mathrm{m}$ (nose / $+x$).
+Because the array is linear and aligned with the look, the beam is a
+**fixed frontal** beam: one steering vector $\mathbf{d}(f)$ toward
+$(1,0,0)$, no electronic scan in this example. Side and back directions
+are evaluated on the $1\,\mathrm{m}$ sphere only to plot the pattern.
+
+TFs: $H_m(f;\mathbf{r})$ at microphones $m=1,2,3,4$. MVDR weights use
+these TFs with a white-noise-gain floor ($-25\,\mathrm{dB}$ below
+$500\,\mathrm{Hz}$, ramping to $-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$).
+
+<img src="./pictures/pBoundary_look.png" alt="|p| on the skin, one point source" width="700">
+
+Boundary $|p|$ for one $2\,\mathrm{mm}$ point source (vertex-interpolated
+display). The optimiser is not published; the TFs are.
 
 
 ## References
