@@ -327,6 +327,48 @@ $500\,\mathrm{Hz}$, ramping to $-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$).
 Boundary $|p|$ for one $2\,\mathrm{mm}$ point source (vertex-interpolated
 display). The optimiser is not published; the TFs are.
 
+
+
+### Transfer functions mic 1 2 3 4 / $(1,0,0)$
+
+Four reciprocal point sources sit $2\,\mathrm{mm}$ off the skin at the
+microphone seats. Each NumCalc run is the transfer function between
+that seat and the station $\mathbf{r}=(1,0,0)\,\mathrm{m}$, which is
+the MVDR look direction (front, $+x$, $1\,\mathrm{m}$).
+The four curves below are $20\log_{10}|4\pi H_m(f;\mathbf{r}_{\mathrm{look}})|$
+for $m=1,2,3,4$.
+
+<img src="./pictures/array51_kemar_VR_headset_mics1234.png" alt="Four microphone seats" width="400">
+
+
+Against a trusted reference BEM/FEM run, Mesh2HRTF / NumCalc stays
+within about $0.2\,\mathrm{dB}$ below $400\,\mathrm{Hz}$ on **mic1** and
+**mic2**. The same offset showed up on the rigid-sphere check at small
+$ka$. We treat it as a limitation of the collocation BEM + FMM, not as
+a geometry error.
+
+For array design that offset is not cosmetic. Magnitude mismatch
+between seats degrades a superdirective MVDR pattern in the same band.
+The weights are therefore given a tighter white-noise-gain floor below
+$400$–$500\,\mathrm{Hz}$ ($-25\,\mathrm{dB}$, then a ramp toward
+$-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$). That extra regularisation
+keeps $w_{\mathrm{opt}}(f)$ and the directivity index smooth instead of
+fitting the $0.2\,\mathrm{dB}$ solver noise.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### Reproducing the BEM run
 
 The Mesh2HRTF project (`NC.inp`, surface mesh, evaluation grid) is in
