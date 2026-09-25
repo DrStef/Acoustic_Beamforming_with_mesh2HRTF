@@ -271,6 +271,26 @@ $500\,\mathrm{Hz}$, ramping to $-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$).
 Boundary $|p|$ for one $2\,\mathrm{mm}$ point source (vertex-interpolated
 display). The optimiser is not published; the TFs are.
 
+### Reproducing the BEM run
+
+The Mesh2HRTF project (`NC.inp`, surface mesh, evaluation grid) is in
+`bem/`. NumCalc solves a Burton–Miller system at each frequency.
+
+The Helmholtz kernel depends on $k=\omega/c$, so the self-influence
+matrix **must** be rebuilt at every frequency. There is no free lunch
+across the band.
+
+What *can* be reused, and is not yet wired in our scripts: at a **fixed**
+frequency the left-hand side is the same for every microphone seat.
+Only the right-hand side changes (reciprocal point source $2\,\mathrm{mm}$
+off each seat). Today each source folder (`source_1` … `source_4`)
+reassembles $A(k)$ from scratch. A single factorisation of $A(k)$ and
+four RHS solves would cut the four-mic campaign by about $4\times$ per
+frequency. We have not found a clean NumCalc switch for that yet.
+
+Geometry, $c=346.18\,\mathrm{m/s}$, FMM cluster diameter $0.05\,\mathrm{m}$,
+and the $2\,\mathrm{mm}$ standoff are documented in `NC.inp`.
+
 
 ## References
 
