@@ -266,6 +266,8 @@ $500\,\mathrm{Hz}$, ramping to $-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$).
 
 <img src="./pictures/pBoundary_look.png" alt="|p| on the skin, one point source" width="700">
 
+<img src="./pictures/array51_kemar_VR_headset_mics1234.png" alt="Four microphone seats" width="700">
+
 Boundary $|p|$ for one $2\,\mathrm{mm}$ point source (vertex-interpolated
 display). The optimiser is not published; the TFs are.
 
