@@ -1,91 +1,59 @@
-# KEMAR + VR headset — BEM transfer functions with Mesh2HRTF
+
+# KEMAR + VR headset — beamforming with Mesh2HRTF
+
 
 Numerical TFs for a 4-microphone array on a dummy + headset. Open BEM (Mesh2HRTF / NumCalc). Comparison with a reference FEM/BEM model. Beamforming examples use these TFs; the optimizer itself is not published.
 
-## KEMAR + VR headset: the CAD file
 
-High-resolution geometry of a KEMAR-style head integrated with a **generic** VR headset.  
-Used as the domain for **open-source BEM** (Mesh2HRTF / NumCalc) to compute microphone transfer functions.
-
-## Geometry
-
-This is an in-house concept mesh for open BEM (Mesh2HRTF / NumCalc).
-It is **not** a vendor product and is **not** affiliated with any commercial
-VR headset.
-
-### Head and torso
-
-KEMAR-style dummy CAD developed at **ICAR**
-(*Infrastructure commune en acoustique pour la recherche*,
-ÉTS–IRSST, École de technologie supérieure, Montréal).
-
-### Headset
-
-A high-quality generic VR-headset CAD by **Chris Leung** on GrabCAD:
-https://grabcad.com/chris.leung-5/models
-
-The headset was simplified and edited: the headband was reduced to about
-$5$–$6\,\mathrm{cm}$ width. The edited headset was then merged with the
-KEMAR-style dummy into a single watertight skin.
-
-The working file distributed here is an **STL** surface mesh (plus the
-Mesh2HRTF `ObjectMeshes` export).
-
-## Coordinates and units
-
-Units are **metres**.
-
-- Origin: midway between the two ear-canal / pinna references.
-- $+x$: look-ahead (nose / headset front).
-- $+y$: left–right axis through the two ears (sign: state whether $+y$ is
-  **left** or **right** when you check in Blender).
-- $+z$: up.
-
-The published STL is rebuilt from Mesh2HRTF `Nodes.txt` / `Elements.txt`
-with a neutral header (not a vendor export).
-
-The skin is **not** a topological sphere. A gap between the headset strap
-and the head, just forward of each pinna, makes two handles
-(homeomorphic to a sphere with two handles, genus 2). BEM treats the
-surface as a rigid sound-hard boundary; the strap–head tunnels are part
-of the exterior domain. 
-
-### What the mesh is for
-
-- beamforming (MVDR / LCMV)
-- sound-source localisation
-- binaural beamforming
-- Ambisonics / array processing on a dummy + headset
-
-Microphone examples in this repo use a small linear subset on one side of
-the headset (2.5 cm spacing). Reciprocal point sources sit $2\,\mathrm{mm}$
-off the skin.
+# KEMAR + VR headset — beamforming with Mesh2HRTF
 
 
-This repository documents **validation** and **far-field TFs** for a 4-microphone subset of the array.  
-Beamforming examples (MVDR, near-field) can be built from these TFs; **the optimizer is not published**.
+## Introduction 
 
-Company page: [bloo-audio.com/array51](https://www.bloo-audio.com/array51/)
+Open BEM (Mesh2HRTF / NumCalc) is used to compute microphone transfer
+functions on rigid bodies, then to build a small MVDR beamformer.
 
-## What this model is for
+The point is practical: can a *free* Burton–Miller + FMM solver replace
+a closed BEM code for array design on a dummy and a headset, in the
+$100\,\mathrm{Hz}$–$8\,\mathrm{kHz}$ band that matters for AR / VR?
 
-- Array design on a dummy + headset (diffraction, shadowing)
-- Far-field TFs toward a 1 m sphere (and optional 10 m grid)
-- Inputs for MVDR / LCMV / Ambisonics / SSL — you bring the weights
+We do not publish the optimiser. We publish the meshes, the TFs, and
+example MVDR patterns (white-noise gain floored at $-25\,\mathrm{dB}$
+below $500\,\mathrm{Hz}$, ramping to $-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$).
 
-## What we computed here
+**Part I — Validation on a rigid sphere** ($a=0.10\,\mathrm{m}$).
+An Ico-4 mesh is compared with the Morse plane-wave solution, using a
+reciprocal point source $2\,\mathrm{mm}$ off the skin and observers at
+$10\,\mathrm{m}$. That run fixes the units, the standoff, and the
+trust we can put in NumCalc.
 
-- Reciprocal **point sources** at four headset microphone positions (right-side linear array, 2.5 cm spacing)
-- Evaluation on a 1 m sphere (~1850 points)
-- Check against a reference FEM/BEM model: magnitude within ~0.2 dB, phase matched after the \(e^{\pm j\omega t}\) convention (`-angle` on NumCalc)
+**Part II — KEMAR + VR headset, 4-microphone MVDR.**
+A KEMAR-style dummy is merged with a simplified generic headset. Four
+point sources on a linear $2.5\,\mathrm{cm}$ line feed far-field TFs
+toward $\mathbf{r}=(1,0,0)\,\mathrm{m}$ (fixed look). Boundary $|p|$,
+a planar cut of the beampattern, and DI / WNG vs frequency are the
+public figures.
 
-## Contents
+Company page: [bloo-audio.com/array51](https://www.bloo-audio.com/array51)
 
-1. Sphere / piston and point-source **validation** (Ico mesh)
-2. **Nahoom** TFs (KEMAR + generic VR)
-3. Figures (look-direction TFs, example directivity balloons)
+## Acknowledgements
 
-Mesh2HRTF: [mesh2hrtf.org](https://mesh2hrtf.org/)
+This work uses **Mesh2HRTF / NumCalc**
+(https://github.com/Any2HRTF/Mesh2HRTF).
+
+Development started at the Acoustics Research Institute (ÖAW, Vienna)
+with Harald Ziegelwanger, Wolfgang Kreuzer and Piotr Majdak, and
+continues with Fabian Brinkmann (TU Berlin) and Katharina Pollack (ARI).
+
+Please cite:
+
+- Ziegelwanger, Majdak, Kreuzer, *J. Acoust. Soc. Am.* 2015
+- Brinkmann et al., *J. Audio Eng. Soc.* 2023
+- Kreuzer et al., *Eng. Anal. Bound. Elem.* 2024
+
+
+
+
 
 
 
@@ -246,6 +214,96 @@ is sufficient to state in the text.
 
 
 ## Part II: Microphone array I — far field, fixed look $(1,0,0)$
+
+## KEMAR + VR headset: the CAD file
+
+High-resolution geometry of a KEMAR-style head integrated with a **generic** VR headset.  
+Used as the domain for **open-source BEM** (Mesh2HRTF / NumCalc) to compute microphone transfer functions.
+
+## Geometry
+
+This is an in-house concept mesh for open BEM (Mesh2HRTF / NumCalc).
+It is **not** a vendor product and is **not** affiliated with any commercial
+VR headset.
+
+### Head and torso
+
+KEMAR-style dummy CAD developed at **ICAR**
+(*Infrastructure commune en acoustique pour la recherche*,
+ÉTS–IRSST, École de technologie supérieure, Montréal).
+
+### Headset
+
+A high-quality generic VR-headset CAD by **Chris Leung** on GrabCAD:
+https://grabcad.com/chris.leung-5/models
+
+The headset was simplified and edited: the headband was reduced to about
+$5$–$6\,\mathrm{cm}$ width. The edited headset was then merged with the
+KEMAR-style dummy into a single watertight skin.
+
+The working file distributed here is an **STL** surface mesh (plus the
+Mesh2HRTF `ObjectMeshes` export).
+
+## Coordinates and units
+
+Units are **metres**.
+
+- Origin: midway between the two ear-canal / pinna references.
+- $+x$: look-ahead (nose / headset front).
+- $+y$: left–right axis through the two ears (sign: state whether $+y$ is
+  **left** or **right** when you check in Blender).
+- $+z$: up.
+
+The published STL is rebuilt from Mesh2HRTF `Nodes.txt` / `Elements.txt`
+with a neutral header (not a vendor export).
+
+The skin is **not** a topological sphere. A gap between the headset strap
+and the head, just forward of each pinna, makes two handles
+(homeomorphic to a sphere with two handles, genus 2). BEM treats the
+surface as a rigid sound-hard boundary; the strap–head tunnels are part
+of the exterior domain. 
+
+### What the mesh is for
+
+- beamforming (MVDR / LCMV)
+- sound-source localisation
+- binaural beamforming
+- Ambisonics / array processing on a dummy + headset
+
+Microphone examples in this repo use a small linear subset on one side of
+the headset (2.5 cm spacing). Reciprocal point sources sit $2\,\mathrm{mm}$
+off the skin.
+
+
+This repository documents **validation** and **far-field TFs** for a 4-microphone subset of the array.  
+Beamforming examples (MVDR, near-field) can be built from these TFs; **the optimizer is not published**.
+
+Company page: [bloo-audio.com/array51](https://www.bloo-audio.com/array51/)
+
+## What this model is for
+
+- Array design on a dummy + headset (diffraction, shadowing)
+- Far-field TFs toward a 1 m sphere (and optional 10 m grid)
+- Inputs for MVDR / LCMV / Ambisonics / SSL — you bring the weights
+
+## What we computed here
+
+- Reciprocal **point sources** at four headset microphone positions (right-side linear array, 2.5 cm spacing)
+- Evaluation on a 1 m sphere (~1850 points)
+- Check against a reference FEM/BEM model: magnitude within ~0.2 dB, phase matched after the \(e^{\pm j\omega t}\) convention (`-angle` on NumCalc)
+
+## Contents
+
+1. Sphere / piston and point-source **validation** (Ico mesh)
+2. **Nahoom** TFs (KEMAR + generic VR)
+3. Figures (look-direction TFs, example directivity balloons)
+
+Mesh2HRTF: [mesh2hrtf.org](https://mesh2hrtf.org/)
+
+
+
+
+
 
 KEMAR-style dummy + generic VR headset (see Geometry). Four reciprocal
 **point sources** sit $2\,\mathrm{mm}$ off the skin at the microphone
