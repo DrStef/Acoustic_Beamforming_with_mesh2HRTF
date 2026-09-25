@@ -355,7 +355,22 @@ $-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$). That extra regularisation
 keeps $w_{\mathrm{opt}}(f)$ and the directivity index smooth instead of
 fitting the $0.2\,\mathrm{dB}$ solver noise.
 
+### Computation of MVDR beamforming weights — DI and WNG
 
+The four TFs at $\mathbf{r}_{\mathrm{look}}=(1,0,0)\,\mathrm{m}$ form the
+steering vector $\mathbf{d}(f)$. The noise field is taken **isotropic**:
+the covariance $\Gamma(f)$ is the Gram matrix of the TFs on the $1\,\mathrm{m}$
+evaluation sphere. Standard MVDR ($\mathbf{w}^H\mathbf{d}=1$) is then
+diagonally loaded until the white-noise gain stays above $-25\,\mathrm{dB}$.
+
+That floor is a robustness knob, not a performance target. It keeps
+$w_{\mathrm{opt}}(f)$ smooth below $500\,\mathrm{Hz}$, where Mesh2HRTF
+is about $0.2\,\mathrm{dB}$ off a reference solver, and it stops the
+beam from fitting solver noise. Directivity index (DI) and the
+*realised* WNG are plotted against frequency for the same weights.
+
+The linear algebra is in the Appendix. The optimiser itself is not
+published; the TFs and the example patterns are.
 
 
 
