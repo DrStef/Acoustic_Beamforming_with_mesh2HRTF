@@ -321,7 +321,7 @@ $500\,\mathrm{Hz}$, ramping to $-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$).
 
 
 
-|  <img src="./pictures/array51_kemar_VR_headset_mics1234.png" alt="Four microphone seats" width="300">   |    <img src="./pictures/array51_kemar_VR_headset_pboundary_mics4.png" alt="|p| on the skin, one point source" width="500">    |   
+|  <img src="./pictures/array51_kemar_VR_headset_mics1234.png" alt="Four microphone seats" width="300">   |    <img src="./pictures/array51_kemar_VR_headset_pboundary_mics4.png" alt="|p| on the skin, one point source" width="450">    |   
 |---|---|
 |         |      |
 
