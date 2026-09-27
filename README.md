@@ -67,11 +67,16 @@ Evaluation at \(r = 10\,\mathrm{m}\) (and 1.5 m for near-field checks).
 Wiki floor: source \(\geq 0.3\,\mathrm{mm}\) outside the skin.  
 Kreuzer: about one mean edge. We scanned **5 / 2 / 1 mm** on \(+x\).
 
+
+<div align="center">
+
 standoff | x (m) | high frequency | low frequency
 --- | --- | --- | ---
 5 mm | 0.105 | drop above 5 kHz (0 and 30 deg) | good
 2 mm | 0.102 | best, near 6 dB baffle step | good
 1 mm | 0.101 | crushed above 3 kHz, ~5.5 dB at 7–8 kHz | best LF collapse to 0 dB
+
+</div>
 
 **Working choice: 2 mm.** Same offset used later on the headset.
 
@@ -132,10 +137,13 @@ $$
 f_{\lambda/6} = \frac{c}{6h} \approx 7.7\,\mathrm{kHz}.
 $$
 
+<div align="center">
 
 |<p align="center"> <img src="./pictures/Blender_Sphere_BEM.png" alt="Sphere validation" width="55%">  </p>  |<p align="center"> <img src="./pictures/Sphere_PointSource_1kHz.png" alt="Sphere validation" width="90%">  </p> |
 |                              ---                                               |  -----   |
-| <p align="center"> <i> BEM model - Rigid Sphere   radius a=0.1m <br> 5120 triangular elements, 2562 nodes (Blender) </i> </p>   |    <p align="center"> <i> mshr2HSRTF: Pressure field on boundary 1kHz <br> point source at (x,y,z)=(0.102,0,0) m </i>        </p>              |
+| <p align="center"> <i> BEM model - Rigid Sphere   radius a=0.1m <br> 5120 triangular elements, 2562 nodes (Blender) </i> </p>   |    <p align="center"> <i> mshr2HSRTF: Pressure field on boundary 1kHz <br> point source at (x,y,z)=(0.102,0,0) m </i>        </p>           |
+
+</div>
 
 At $8\,\mathrm{kHz}$ the mesh is slightly coarser than $\lambda/6$
 ($\approx\lambda/5.75$). Burton–Miller collocation BEM often needs **more than
@@ -163,6 +171,8 @@ The two problems are not identical, but the far-field patterns should match. The
 
 At $ka \approx 0.1$ the Mesh2HRTF far-field samples at $r = 10\,\mathrm{m}$ are:
 
+<div align="center">
+
 | Angle | $\|p\|$ | Level re $0^\circ$ |
 |---|---|---|
 | $0^\circ$ | $1.0212\times 10^{-1}$ | $0.00\,\mathrm{dB}$ |
@@ -171,6 +181,8 @@ At $ka \approx 0.1$ the Mesh2HRTF far-field samples at $r = 10\,\mathrm{m}$ are:
 | $90^\circ$ | $9.9313\times 10^{-2}$ | $-0.24\,\mathrm{dB}$ |
 | $120^\circ$ | $9.8742\times 10^{-2}$ | $-0.29\,\mathrm{dB}$ |
 | $150^\circ$ | $9.8670\times 10^{-2}$ | $-0.30\,\mathrm{dB}$ |
+
+</div>
 
 The angular spread is **$0.30\,\mathrm{dB}$**. The analytical plane-wave solution (and the reference BEM) is essentially isotropic at this $ka$. The bias is therefore numerical: Burton–Miller collocation and FMM / quadrature at low frequency, not the $2\,\mathrm{mm}$ standoff and not the $10\,\mathrm{m}$ station.
 
@@ -319,18 +331,13 @@ these TFs with a white-noise-gain floor ($-25\,\mathrm{dB}$ below
 $500\,\mathrm{Hz}$, ramping to $-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$).
 
 
-
+<div align="center">
 
 |<p align="center"> <img src="./pictures/array51_kemar_VR_headset_mics1234.png" alt="Four microphone seats" width="300"></p>|<p align="center"><img src="./pictures/array51_kemar_VR_headset_pboundary_mics4.png" alt="magnitude(p) on the skin, one point source" width="450"></p>|   
 |:---:|:---:|
 |<p align="center"> <i> 4 microphones linear array - Configuration  </i> </p>|<p align="center"> <i> Pressure field - source_4 4 kHz </i> </p>|
 
-
-
-
-
-
-
+</div>
 
 
 
