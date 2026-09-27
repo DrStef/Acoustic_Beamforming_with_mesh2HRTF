@@ -355,8 +355,13 @@ the MVDR look direction (front, $+x$, $1\,\mathrm{m}$).
 The four curves below are $20\log_{10}|4\pi H_m(f;\mathbf{r}_{\mathrm{look}})|$
 for $m=1,2,3,4$.
 
-<img src="./pictures/array51_kemar_VR_headset_TFs_mics1234.png" alt="Four microphone seats" width="500">
+<div align="center">
 
+|<p align="center"><img src="./pictures/array51_kemar_VR_headset_TFs_mics1234.png" alt="Four microphone seats" width="500"></p>|
+|:---:|
+| <p align="center"> <i> Transfer Functions - mic1,2,3,4 to point (1,0,0) on the Unit Sphere </i> </p>   |
+
+</div>
 
 Against a trusted reference BEM/FEM run, Mesh2HRTF / NumCalc stays
 within about $0.2\,\mathrm{dB}$ below $400\,\mathrm{Hz}$ on **mic1** and
