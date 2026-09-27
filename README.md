@@ -359,7 +359,7 @@ for $m=1,2,3,4$.
 
 |<p align="center"><img src="./pictures/array51_kemar_VR_headset_TFs_mics1234.png" alt="Four microphone seats" width="500"></p>|
 |:---:|
-| <p align="center"> <i> Transfer Functions - mic1,2,3,4 to point (1,0,0) on the Unit Sphere </i> </p>   |
+| <p align="center"> <i> Transfer Functions - mic1,2,3,4 to point (1,0,0) m on the Unit Sphere </i> </p>   |
 
 </div>
 
@@ -395,7 +395,13 @@ The linear algebra is in the Appendix. The optimiser itself is not
 published; the TFs and the example patterns are.
 
 
+<div align="center">
 
+|<p align="center"> <img src="./pictures/array51_kemar_VR_headset_MVDR_Wopt.png" alt="mvdr  wopt" width="300"></p>|<p align="center"><img src="./pictures/array51_kemar_VR_headset_MVDR_DI_WNG.png" alt="mvdt di and wng" width="450"></p>|   
+|:---:|:---:|
+|<p align="center"> <i> MVDR Optimal Weights - Look direction 0 deg  </i> </p>|<p align="center"> <i> Directivity Index & White Noise Gain </i> </p>|
+
+</div>
 
 
 
