@@ -409,11 +409,19 @@ published; the TFs and the example patterns are.
 
 | <p align="center"><img src="./pictures/array51_kemar_VR_headset_Beam3D_200Hz.png" alt="MVDR 200 Hz" width="260"></p>  | <p align="center"><img src="./pictures/array51_kemar_VR_headset_Beam3D_1kHz.png" alt="MVDR 1 kHz" width="260"></p>  | <p align="center"><img src="./pictures/array51_kemar_VR_headset_Beam3D_4kHz.png" alt="MVDR 4 kHz" width="260"></p>  |
 |:------------------:|:-----------------:|:-----------------:|
-|<p align="center"> $200\,\mathrm{Hz}$ </p> | <p align="center">$1\,\mathrm{kHz}$</p> | <p align="center">$4\,\mathrm{kHz}$ </p>  |
+|<p align="center"><i> $200\,\mathrm{Hz}$ </i></p> | <i><p align="center">$1\,\mathrm{kHz}$ </i></p> |<i> <p align="center">$4\,\mathrm{kHz}$ </i></p>  |
 
 </div>
 
+### Planar Directivity - Plane Z=0 
 
+<div align="center">
+
+|<p align="center"><img src="./pictures/array51_kemar_VR_headset_PlanarDirectivity.png" alt="Four microphone seats" width="500"></p>|
+|:---:|
+| <p align="center"> <i> Directivity v. Frequency, in the plane Z=0  </i> </p>   |
+
+</div>
 
 
 
