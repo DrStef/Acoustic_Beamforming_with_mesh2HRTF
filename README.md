@@ -397,7 +397,7 @@ published; the TFs and the example patterns are.
 
 <div align="center">
 
-|<p align="center"> <img src="./pictures/array51_kemar_VR_headset_MVDR_Wopt.png" alt="mvdr  wopt" width="300"></p>|<p align="center"><img src="./pictures/array51_kemar_VR_headset_MVDR_DI_WNG.png" alt="mvdt di and wng" width="700"></p>|   
+|<p align="center"> <img src="./pictures/array51_kemar_VR_headset_MVDR_Wopt.png" alt="mvdr  wopt" width="300"></p>|<p align="center"><img src="./pictures/array51_kemar_VR_headset_MVDR_DI_WNG.png" alt="mvdt di and wng" width="650"></p>|   
 |:---:|:---:|
 |<p align="center"> <i> MVDR Optimal Weights - Look direction 0 deg  </i> </p>|<p align="center"> <i> Directivity Index & White Noise Gain </i> </p>|
 
