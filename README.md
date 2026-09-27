@@ -403,9 +403,15 @@ published; the TFs and the example patterns are.
 
 </div>
 
+### 3D Directivity Patterns
 
+<div align="center">
 
+| <p align="center"><img src="./pictures/array51_kemar_VR_headset_Beam3D_200Hz.png" alt="MVDR 200 Hz" width="260"></p>  | <p align="center"><img src="./pictures/array51_kemar_VR_headset_Beam3D_1000Hz.png" alt="MVDR 1 kHz" width="260"></p>  | <p align="center"><img src="./pictures/array51_kemar_VR_headset_Beam3D_4000Hz.png" alt="MVDR 4 kHz" width="260"></p>  |
+|:------------------:|:-----------------:|:-----------------:|
+|<p align="center"> $200\,\mathrm{Hz}$ </p> | <p align="center">$1\,\mathrm{kHz}$</p> | <p align="center">$4\,\mathrm{kHz}$ </p>  |
 
+</div>
 
 
 
