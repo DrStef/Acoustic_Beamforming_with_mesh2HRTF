@@ -413,7 +413,7 @@ published; the TFs and the example patterns are.
 
 </div>
 
-### Planar Directivity - Plane Z=0 
+### Directivity v. Frequency (Hz) - Horizontal Plane z=0 
 
 <div align="center">
 
