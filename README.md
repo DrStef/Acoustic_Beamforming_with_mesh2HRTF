@@ -318,9 +318,19 @@ TFs: $H_m(f;\mathbf{r})$ at microphones $m=1,2,3,4$. MVDR weights use
 these TFs with a white-noise-gain floor ($-25\,\mathrm{dB}$ below
 $500\,\mathrm{Hz}$, ramping to $-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$).
 
-<img src="./pictures/array51_kemar_VR_headset_mics1234.png" alt="Four microphone seats" width="400">
 
-<img src="./pictures/array51_kemar_VR_headset_pboundary_mics4.png" alt="|p| on the skin, one point source" width="400">
+
+
+|  <img src="./pictures/array51_kemar_VR_headset_mics1234.png" alt="Four microphone seats" width="300">   |    <img src="./pictures/array51_kemar_VR_headset_pboundary_mics4.png" alt="|p| on the skin, one point source" width="500">    |   
+|---|---|
+|         |      |
+
+
+
+
+
+
+
 
 
 
