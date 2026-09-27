@@ -409,7 +409,7 @@ published; the TFs and the example patterns are.
 
 | <p align="center"><img src="./pictures/array51_kemar_VR_headset_Beam3D_200Hz.png" alt="MVDR 200 Hz" width="260"></p>  | <p align="center"><img src="./pictures/array51_kemar_VR_headset_Beam3D_1kHz.png" alt="MVDR 1 kHz" width="260"></p>  | <p align="center"><img src="./pictures/array51_kemar_VR_headset_Beam3D_4kHz.png" alt="MVDR 4 kHz" width="260"></p>  |
 |:------------------:|:-----------------:|:-----------------:|
-|<p align="center"><i> $200\,\mathrm{Hz}$ </i></p> | <i><p align="center">$1\,\mathrm{kHz}$ </i></p> |<i> <p align="center">$4\,\mathrm{kHz}$ </i></p>  |
+|<p align="center"><i> 200 Hz </i></p> | <p align="center"> <i> 1000 Hz </i></p> | <p align="center"><i> 4000 Hz </i></p>  |
 
 </div>
 
