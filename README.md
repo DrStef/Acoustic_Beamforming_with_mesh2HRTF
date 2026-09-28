@@ -1,3 +1,45 @@
+# KEMAR + VR Headset — Acoustic Beamforming with Mesh2HRTF
+
+Numerical Transfer Functions (TFs) for a 4-microphone array integrated into a KEMAR dummy fitted with a generic VR headset. Computed using open-source BEM (**Mesh2HRTF / NumCalc**) and validated against reference FEM/BEM models. 
+
+> [!NOTE]
+> **Repository Scope:** We publish the meshes, the computed transfer functions (TFs), and example MVDR beamforming patterns. **The optimizer itself is not published.**
+
+---
+
+## Overview
+
+Can a *free* Burton–Miller + FMM solver reliably replace closed-source BEM codes for array design on complex geometries (dummy + headset) within the critical **$100\,\mathrm{Hz}$–$8\,\mathrm{kHz}$** AR/VR audio band? 
+
+This repository provides open BEM data, validation benchmarks, and array processing examples using a small MVDR (Minimum Variance Distortionless Response) beamformer. White-noise gain (WNG) is floored at $-25\,\mathrm{dB}$ below $500\,\mathrm{Hz}$, ramping to $-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$.
+
+### Repository Structure
+
+- **Part I — Validation on a Rigid Sphere ($a = 0.10\,\mathrm{m}$):** Compares an Ico-4 mesh against the analytical Morse plane-wave solution using a reciprocal point source ($2\,\mathrm{mm}$ off-skin) and $10\,\mathrm{m}$ observers to establish numerical tolerances and solver trust.
+- **Part II — KEMAR + VR Headset (4-Mic MVDR):** Integrates a KEMAR-style dummy with a generic VR headset. Evaluates a linear $2.5\,\mathrm{cm}$ microphone array, far-field TFs toward $\mathbf{r}=(1,0,0)\,\mathrm{m}$, boundary pressures, and Directivity Index (DI) / WNG performance.
+
+---
+
+## Quick Links & Resources
+
+- **Company Page:** [bloo-audio.com/array51](https://www.bloo-audio.com/array51)
+- **Solver Engine:** [Mesh2HRTF / NumCalc](https://github.com/Any2HRTF/Mesh2HRTF) ([Official Website](https://mesh2hrtf.org/) | [Python API](https://mesh2hrtf.readthedocs.io/))
+
+## Acknowledgements
+
+Development and tools used in this work trace back to foundational acoustic research collaborations:
+- **Mesh2HRTF Pipeline:** Developed at the Acoustics Research Institute (ÖAW, Vienna) by Harald Ziegelwanger, Wolfgang Kreuzer, and Piotr Majdak, with ongoing contributions from Fabian Brinkmann (TU Berlin) and Katharina Pollack (ARI).
+
+### Key References
+
+- Ziegelwanger, Majdak, Kreuzer, *"Numerical calculation of head-related transfer functions: A review"* — **J. Acoust. Soc. Am.**, 2015.
+- Brinkmann et al., *"A Blender-Based Open-Source Pipeline for Head-Related Transfer Function Calculation"* — **J. Audio Eng. Soc.**, 2023.
+- Kreuzer et al., *"An open-source boundary element method solver for acoustics"* — **Eng. Anal. Bound. Elem.**, 2024 (Burton–Miller + FMM).
+- Morse & Ingard, *Theoretical Acoustics*, McGraw-Hill / Princeton University Press, 1968/1986.
+
+
+
+
 # KEMAR + VR headset — beamforming with Mesh2HRTF
 
 Numerical TFs for a 4-microphone array on a dummy + headset. Open BEM (Mesh2HRTF / NumCalc). Comparison with a reference FEM/BEM model. Beamforming examples use these TFs; the optimizer itself is not published.
@@ -51,7 +93,7 @@ Please cite:
 
 
 
-## Part I — Validation of the Mesh2HRTF BEM solver
+## Part I — Validation of the Mesh2HRTF BEM solver - Rigid Sphere a= 0.1 m
 
 Rigid sphere, radius \(a = 0.1\,\mathrm{m}\). Ico-5 mesh: 5120 faces, mean edge \(\approx 7.5\,\mathrm{mm}\) (\(\approx\lambda/6\) at 8 kHz, \(c = 346.18\,\mathrm{m/s}\)).  
 Evaluation at \(r = 10\,\mathrm{m}\) (and 1.5 m for near-field checks).
