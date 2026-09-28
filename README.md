@@ -93,7 +93,7 @@ Please cite:
 
 
 
-## Part I — Validation of the Mesh2HRTF BEM solver - Rigid Sphere a= 0.1 m
+# Part I — Validation of the Mesh2HRTF BEM solver - Rigid Sphere a= 0.1 m
 
 Rigid sphere, radius \(a = 0.1\,\mathrm{m}\). Ico-5 mesh: 5120 faces, mean edge \(\approx 7.5\,\mathrm{mm}\) (\(\approx\lambda/6\) at 8 kHz, \(c = 346.18\,\mathrm{m/s}\)).  
 Evaluation at \(r = 10\,\mathrm{m}\) (and 1.5 m for near-field checks).
@@ -114,7 +114,7 @@ standoff | x (m) | high frequency | low frequency
 
 </div>
 
-**Working choice: 2 mm.** Same offset used later on the headset.
+**Working choice: 2 mm.** Same offset used later on the VR headset.
 
 ### Other checks
 
@@ -144,7 +144,7 @@ Pipeline Mesh2HRTF : Brinkmann et al., JAES 2023
 NumCalc (solver) : Kreuzer et al., Eng. Anal. Bound. Elem. 2024 — Burton–Miller + FMM
 Morse and Ingrad (1968)
 
-# Sphere validation — plane wave vs reciprocal point source
+## Sphere validation — plane wave vs reciprocal point source
 
 We compare two related but distinct problems that should agree closely
 on the rigid-sphere boundary and, by reciprocity, at far-field points
@@ -259,6 +259,88 @@ That matters for **low-frequency array design**. In a superdirective beamformer 
 Do not publish third-party trial FEM/BEM field plots. A magnitude agreement
 of about \(0.2\,\mathrm{dB}\) (phase aligned after the \(e^{\pm j\omega t}\) convention)
 is sufficient to state in the text.
+
+
+
+## Part I — Validation of the Mesh2HRTF BEM Solver (Rigid Sphere, $a = 0.1\,\mathrm{m}$)
+
+### 1. Overview & Objectives
+
+To establish numerical tolerances and build trust in our BEM workflow, we validate the open-source pipeline against an analytical solution. We compare two related problems that should agree closely on the rigid-sphere boundary and, by reciprocity, at far-field points ($r = 10\,\mathrm{m}$):
+- **Analytical scattering** of a plane wave (Morse & Ingard solution).
+- **Reciprocal point source** placed a few millimeters outside the skin (Mesh2HRTF / NumCalc), acting as a stand-in for a surface microphone.
+
+Evaluations span $100\,\mathrm{Hz}$ to $8\,\mathrm{kHz}$ with pressure magnitude $\vert{}p\vert{}$ reported across meridional angles ($0^\circ$ to $180^\circ$).
+
+---
+
+### 2. BEM Mesh & Solver Configuration
+
+The rigid sphere and its icosahedral (Ico) mesh were generated in Blender and exported via `mesh2input` to create the NumCalc input files (`NC.inp`).
+
+- **Mesh Resolution:** 4 subdivisions yielding **5120 triangular elements** and **2562 nodes**. 
+- **Mean Edge Length:** $h \approx 7.53\,\mathrm{mm}$ ($\approx 7.5\,\mathrm{mm}$).
+- **Sound Speed:** $c = 346.18\,\mathrm{m/s}$.
+- **Frequency Limit ($\lambda/6$ rule):** 
+  $$f_{\lambda/6} = \frac{c}{6h} \approx 7.7\,\mathrm{kHz}$$
+
+#### Solver Engine (NumCalc)
+NumCalc solves the Helmholtz equation using a **Burton–Miller collocation BEM**, optionally accelerated by the **Multilevel Fast Multipole Method (ML-FMM)** for cluster-to-cluster coupling. 
+- *Working configuration:* ML-FMM with a cluster diameter of $0.05\,\mathrm{m}$ (changing this to $0.025\,\mathrm{m}$ showed no noticeable change on the look-direction transfer function).
+
+<div align="center">
+
+| <p align="center"> <img src="./pictures/Blender_Sphere_BEM.png" alt="Sphere validation" width="55%"> </p> | <p align="center"> <img src="./pictures/Sphere_PointSource_1kHz.png" alt="Sphere validation" width="90%"> </p> |
+| :---: | :---: |
+| <p align="center"> <i> BEM model - Rigid Sphere, radius $a = 0.1\,\mathrm{m}$ <br> 5120 triangular elements, 2562 nodes (Blender) </i> </p> | <p align="center"> <i> Mesh2HRTF: Pressure field on boundary at $1\,\mathrm{kHz}$ <br> point source at $(0.102, 0, 0)\,\mathrm{m}$ </i> </p> |
+
+</div>
+
+---
+
+### 3. Point-Source Standoff Tuning
+
+The Wiki guideline suggests a source standoff $\geq 0.3\,\mathrm{mm}$ outside the skin, while Kreuzer recommends approximately one mean edge length. We scanned **$5\,\mathrm{mm}$, $2\,\mathrm{mm}$, and $1\,\mathrm{mm}$** along the $+x$ axis:
+
+<div align="center">
+
+| Standoff | $x$-position | High-Frequency Behavior | Low-Frequency Behavior |
+| :---: | :---: | :--- | :--- |
+| **$5\,\mathrm{mm}$** | $0.105\,\mathrm{m}$ | Drop above $5\,\mathrm{kHz}$ ($0^\circ$ and $30^\circ$) | Good |
+| **$2\,\mathrm{mm}$** | $0.102\,\mathrm{m}$ | **Best**, near $6\,\mathrm{dB}$ baffle step | Good |
+| **$1\,\mathrm{mm}$** | $0.101\,\mathrm{m}$ | Crushed above $3\,\mathrm{kHz}$ (~$5.5\,\mathrm{dB}$ at $7\text{–}8\,\mathrm{kHz}$) | Best LF collapse to $0\,\mathrm{dB}$ |
+
+</div>
+
+> **Working Choice:** **$2\,\mathrm{mm}$**. This exact offset is carried over later for the VR headset microphone positions.
+
+---
+
+### 4. Additional Numerical Observations
+
+- **Mesh Topology (Ico vs. UV):** Elongated polar triangles on UV meshes distort low frequencies ($100\,\mathrm{Hz}$) and pole calculations; Ico triangulation avoids this entirely.
+- **Piston vs. Point Sources:** A piston radiator requires area factor $S$, whereas a point source uses $P_0 = 1$ (i.e., $e^{ikR}/(4\pi R)$). At $1\,\mathrm{m}$, $20\log_{10}(4\pi) \approx +22\,\mathrm{dB}$ is required to reach $1\,\mathrm{Pa}$.
+- **High-Frequency Discretization:** At $8\,\mathrm{kHz}$, the mesh is slightly coarser than $\lambda/6$ ($\approx\lambda/5.75$). Burton–Miller collocation requires adequate elements per wavelength at high $ka$, meaning the minor $\sim 0.2\,\mathrm{dB}$ drop at $0^\circ$ and $30^\circ$ toward $6\text{–}8\,\mathrm{kHz}$ stems from numerical quadrature rather than geometry error. (A 5-subdivision mesh with $20\,480$ faces would push $\lambda/6$ past $8\,\mathrm{kHz}$).
+
+---
+
+### 5. Practical Summary & Takeaways
+
+Mesh2HRTF proves to be a solid open BEM tool for AR/VR array design in the $100\,\mathrm{Hz}$–$8\,\mathrm{kHz}$ band. However, note the following nuances:
+- A $0.3\,\mathrm{dB}$ front-to-back tilt occurs at low frequencies ($ka \approx 0.1$), representing a discretization/quadrature error rather than physical asymmetry.
+- For superdirective beamformers (MVDR/LCMV), this small magnitude and phase discrepancy affects white-noise gain. Consequently, low-frequency weights require careful regularization (e.g., WNG flooring) before freezing final array designs.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## Part II: Microphone array I — far field, fixed look $(1,0,0)$
