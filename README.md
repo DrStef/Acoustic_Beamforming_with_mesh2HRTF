@@ -21,6 +21,7 @@ September 2026  <br>
 
 | <p align="center"> <img src="./pictures/Mesh_VR_Kemar_v001.png" alt="Sphere validation" width="50%"> </p> |
 |  :---: |
+| Open source model CAd and BEM - Kemar+VR Headset |
 
 </div>
 
