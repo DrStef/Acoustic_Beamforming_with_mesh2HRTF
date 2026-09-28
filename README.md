@@ -1,12 +1,6 @@
-
 # KEMAR + VR headset — beamforming with Mesh2HRTF
-
 
 Numerical TFs for a 4-microphone array on a dummy + headset. Open BEM (Mesh2HRTF / NumCalc). Comparison with a reference FEM/BEM model. Beamforming examples use these TFs; the optimizer itself is not published.
-
-
-# KEMAR + VR headset — beamforming with Mesh2HRTF
-
 
 ## Introduction 
 
