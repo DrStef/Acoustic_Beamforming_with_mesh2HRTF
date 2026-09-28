@@ -1,3 +1,25 @@
+<div align="center">
+<h1>KEMAR + VR Headset — Acoustic Beamforming with Mesh2HRTF</h1>
+</div>
+<br>
+
+**Dr. Stéphane Dedieu** 
+<br>Applied Mathematics | Digital Signal Processing | ML  <br>
+Fall 2025 – January 2026  <br>
+<a href="https://www.linkedin.com/in/sdedieu/">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="30" height="30">
+</a>
+
+<br>
+
+
+**Early detection of bearing degradation in NASA IMS Dataset using denoising, custom bTSTFT transforms, and CNN autoencoder.**
+
+### Notebooks
+
+
+
+
 # KEMAR + VR Headset — Acoustic Beamforming with Mesh2HRTF
 
 Numerical Transfer Functions (TFs) for a 4-microphone array integrated into a KEMAR dummy fitted with a generic VR headset. Computed using open-source BEM (**Mesh2HRTF / NumCalc**) and validated against analytical models and reference FEM/BEM models. 
