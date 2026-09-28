@@ -66,8 +66,6 @@ toward $\mathbf{r}=(1,0,0)\,\mathrm{m}$ (fixed look). Boundary $|p|$,
 a planar cut of the beampattern, and DI / WNG vs frequency are the
 public figures.
 
-Company page: [bloo-audio.com/array51](https://www.bloo-audio.com/array51)
-
 ---
 
 ## Quick Links & Resources
