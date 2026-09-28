@@ -20,8 +20,7 @@ September 2026  <br>
 <div align="center">
 
 | <p align="center"> <img src="./pictures/Mesh_VR_Kemar_v001.png" alt="Sphere validation" width="40%"> </p> |
-|  --- |
-|<p align="center"><i>Open-source CAD & BEM model: KEMAR dummy integrated with a generic VR headset (Source: bloo-audio.com / Bloo Audio Inc.)</i></p>|
+|<p align="center"><i>Open-source CAD & BEM model: KEMAR dummy integrated with a generic VR headset <br> (Source: bloo-audio.com / Bloo Audio Inc.)</i></p>|
 
 </div>
 
