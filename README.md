@@ -191,74 +191,7 @@ A five-subdivision Ico mesh ($20\,480$ faces, $h \approx 3.8\,\mathrm{mm}$)
 would put $\lambda/6$ well above $8\,\mathrm{kHz}$ if a tighter high-frequency
 check is required.
 
-### Results and residual discrepancies
 
-We compare two fields that reciprocity says should agree closely:
-
-- the analytical rigid-sphere scattering of a plane wave (Morse []);
-- a Mesh2HRTF / NumCalc BEM run with a point source $2\,\mathrm{mm}$ outside the skin, pressure sampled at $r = 10\,\mathrm{m}$ from $0^\circ$ to $180^\circ$ in a meridional plane.
-
-The two problems are not identical, but the far-field patterns should match. They do, to a fraction of a decibel over most of the $100\,\mathrm{Hz}$–$8\,\mathrm{kHz}$ band.
-
-
-|<p align="center"> <img src="./pictures/Sphere_PresPlaneWav_001.png" alt="Sphere validation" width="80%">  </p>  |<p align="center"> <img src="./pictures/Sphere_TFs_FarField_001.png" alt="Sphere validation" width="90%">  </p> |
-|                              ---                                               |  -----   |
-| <p align="center"> <i> Analytical Model - Sound pressure on the sphere <br> Plane  z=0  - Various angles </i> </p>   |    <p align="center"> <i> mshr2HSRTF BEM Model - Sound pressure at 10 m  <br> Plane  z=0  - Various angles </i>        </p>              |
-
-At $ka \approx 0.1$ the Mesh2HRTF far-field samples at $r = 10\,\mathrm{m}$ are:
-
-<div align="center">
-
-| Angle | $\|p\|$ | Level re $0^\circ$ |
-|---|---|---|
-| $0^\circ$ | $1.0212\times 10^{-1}$ | $0.00\,\mathrm{dB}$ |
-| $30^\circ$ | $1.0161\times 10^{-1}$ | $-0.04\,\mathrm{dB}$ |
-| $60^\circ$ | $1.0044\times 10^{-1}$ | $-0.14\,\mathrm{dB}$ |
-| $90^\circ$ | $9.9313\times 10^{-2}$ | $-0.24\,\mathrm{dB}$ |
-| $120^\circ$ | $9.8742\times 10^{-2}$ | $-0.29\,\mathrm{dB}$ |
-| $150^\circ$ | $9.8670\times 10^{-2}$ | $-0.30\,\mathrm{dB}$ |
-
-</div>
-
-The angular spread is **$0.30\,\mathrm{dB}$**. The analytical plane-wave solution (and the reference BEM) is essentially isotropic at this $ka$. The bias is therefore numerical: Burton–Miller collocation and FMM / quadrature at low frequency, not the $2\,\mathrm{mm}$ standoff and not the $10\,\mathrm{m}$ station.
-
-**Low frequency** (\(50\)–\(100\,\mathrm{Hz}\), \(ka \approx 0.1\)–\(0.2\)).  
-The analytical field is essentially isotropic (\(\sim 0\,\mathrm{dB}\) spread across angles).
-Mesh2HRTF shows a slightly larger angular variance, about \(0.3\)–\(0.4\,\mathrm{dB}\).
-
-**High frequency** (around \(ka = 10\)).  
-On the illuminated side (\(0^\circ\) and \(30^\circ\)) the computed amplitude sags by about \(0.2\,\mathrm{dB}\).
-The same droop appears in other Mesh2HRTF validations. Likely causes are the
-Burton–Miller discretisation, FMM clustering, and/or the quadrature — not the
-geometry itself.
-
-**Parameters that do *not* move the look-direction TF.**  
-FMM cluster diameter \(0.05\,\mathrm{m}\) vs \(0.025\,\mathrm{m}\) has no significant effect
-on this Ico-5 mesh.
-
-**Parameter that *does* matter.**  
-Point-source standoff from the skin. After a \(5 / 2 / 1\,\mathrm{mm}\) scan on \(+x\),
-**\(2\,\mathrm{mm}\)** is the working choice (clean high-frequency baffle step,
-acceptable low-frequency collapse). The same offset is used later for headset
-microphone positions.
-
-### Practical conclusion
-
-Treat Mesh2HRTF as a solid open BEM tool for research and array design —
-MVDR / LCMV, binaural beamforming, and SSL — in the **\(100\)–\(8000\,\mathrm{Hz}\)**
-band that matters for AR/VR devices. Use a \(\sim 2\,\mathrm{mm}\) reciprocal
-point source for surface microphones, keep an eye on the low-frequency angular
-spread and the mild high-frequency look-direction loss, and add a targeted
-check when a new mesh or frequency grid is introduced.
-
-More mature commercial BEM codes pass the $ka \approx 0.1$ test to a few hundredths of a dB. Mesh2HRTF does not: the $0.3\,\mathrm{dB}$ front-to-back tilt is a low-frequency discretisation / quadrature error.
-
-That matters for **low-frequency array design**. In a superdirective beamformer (MVDR, LCMV) a few tenths of a dB of false magnitude — and the associated phase — change the white-noise gain and the realised directivity. Treat Mesh2HRTF TFs below a few hundred hertz with extra regularisation, or cross-check that band with another solver, before freezing weights.
-
-
-Do not publish third-party trial FEM/BEM field plots. A magnitude agreement
-of about \(0.2\,\mathrm{dB}\) (phase aligned after the \(e^{\pm j\omega t}\) convention)
-is sufficient to state in the text.
 
 
 
@@ -316,7 +249,57 @@ The Wiki guideline suggests a source standoff $\geq 0.3\,\mathrm{mm}$ outside th
 
 ---
 
-### 4. Additional Numerical Observations
+### 4. Results and residual discrepancies
+
+We compare two fields that reciprocity says should agree closely:
+
+- the analytical rigid-sphere scattering of a plane wave (Morse []);
+- a Mesh2HRTF / NumCalc BEM run with a point source $2\,\mathrm{mm}$ outside the skin, pressure sampled at $r = 10\,\mathrm{m}$ from $0^\circ$ to $180^\circ$ in a meridional plane.
+
+The two problems are not identical, but the far-field patterns should match. They do, to a fraction of a decibel over most of the $100\,\mathrm{Hz}$–$8\,\mathrm{kHz}$ band.
+
+
+|<p align="center"> <img src="./pictures/Sphere_PresPlaneWav_001.png" alt="Sphere validation" width="80%">  </p>  |<p align="center"> <img src="./pictures/Sphere_TFs_FarField_001.png" alt="Sphere validation" width="90%">  </p> |
+|                              ---                                               |  -----   |
+| <p align="center"> <i> Analytical Model - Sound pressure on the sphere <br> Plane  z=0  - Various angles </i> </p>   |    <p align="center"> <i> mshr2HSRTF BEM Model - Sound pressure at 10 m  <br> Plane  z=0  - Various angles </i>        </p>              |
+
+At $ka \approx 0.1$ the Mesh2HRTF far-field samples at $r = 10\,\mathrm{m}$ are:
+
+<div align="center">
+
+| Angle | $\|p\|$ | Level re $0^\circ$ |
+|---|---|---|
+| $0^\circ$ | $1.0212\times 10^{-1}$ | $0.00\,\mathrm{dB}$ |
+| $30^\circ$ | $1.0161\times 10^{-1}$ | $-0.04\,\mathrm{dB}$ |
+| $60^\circ$ | $1.0044\times 10^{-1}$ | $-0.14\,\mathrm{dB}$ |
+| $90^\circ$ | $9.9313\times 10^{-2}$ | $-0.24\,\mathrm{dB}$ |
+| $120^\circ$ | $9.8742\times 10^{-2}$ | $-0.29\,\mathrm{dB}$ |
+| $150^\circ$ | $9.8670\times 10^{-2}$ | $-0.30\,\mathrm{dB}$ |
+
+</div>
+
+The angular spread is **$0.30\,\mathrm{dB}$**. The analytical plane-wave solution (and the reference BEM) is essentially isotropic at this $ka$. The bias is therefore numerical: Burton–Miller collocation and FMM / quadrature at low frequency, not the $2\,\mathrm{mm}$ standoff and not the $10\,\mathrm{m}$ station.
+
+**Low frequency** (\(50\)–\(100\,\mathrm{Hz}\), \(ka \approx 0.1\)–\(0.2\)).  
+The analytical field is essentially isotropic (\(\sim 0\,\mathrm{dB}\) spread across angles).
+Mesh2HRTF shows a slightly larger angular variance, about \(0.3\)–\(0.4\,\mathrm{dB}\).
+
+**High frequency** (around \(ka = 10\)).  
+On the illuminated side (\(0^\circ\) and \(30^\circ\)) the computed amplitude sags by about \(0.2\,\mathrm{dB}\).
+The same droop appears in other Mesh2HRTF validations. Likely causes are the
+Burton–Miller discretisation, FMM clustering, and/or the quadrature — not the
+geometry itself.
+
+**Parameters that do *not* move the look-direction TF.**  
+FMM cluster diameter \(0.05\,\mathrm{m}\) vs \(0.025\,\mathrm{m}\) has no significant effect
+on this Ico-5 mesh.
+
+**Parameter that *does* matter.**  
+Point-source standoff from the skin. After a \(5 / 2 / 1\,\mathrm{mm}\) scan on \(+x\),
+**\(2\,\mathrm{mm}\)** is the working choice (clean high-frequency baffle step,
+acceptable low-frequency collapse). The same offset is used later for headset
+microphone positions.
+
 
 - **Mesh Topology (Ico vs. UV):** Elongated polar triangles on UV meshes distort low frequencies ($100\,\mathrm{Hz}$) and pole calculations; Ico triangulation avoids this entirely.
 - **Piston vs. Point Sources:** A piston radiator requires area factor $S$, whereas a point source uses $P_0 = 1$ (i.e., $e^{ikR}/(4\pi R)$). At $1\,\mathrm{m}$, $20\log_{10}(4\pi) \approx +22\,\mathrm{dB}$ is required to reach $1\,\mathrm{Pa}$.
@@ -330,7 +313,16 @@ Mesh2HRTF proves to be a solid open BEM tool for AR/VR array design in the $100\
 - A $0.3\,\mathrm{dB}$ front-to-back tilt occurs at low frequencies ($ka \approx 0.1$), representing a discretization/quadrature error rather than physical asymmetry.
 - For superdirective beamformers (MVDR/LCMV), this small magnitude and phase discrepancy affects white-noise gain. Consequently, low-frequency weights require careful regularization (e.g., WNG flooring) before freezing final array designs.
 
+Treat Mesh2HRTF as a solid open BEM tool for research and array design —
+MVDR / LCMV, binaural beamforming, and SSL — in the **\(100\)–\(8000\,\mathrm{Hz}\)**
+band that matters for AR/VR devices. Use a \(\sim 2\,\mathrm{mm}\) reciprocal
+point source for surface microphones, keep an eye on the low-frequency angular
+spread and the mild high-frequency look-direction loss, and add a targeted
+check when a new mesh or frequency grid is introduced.
 
+More mature commercial BEM codes pass the $ka \approx 0.1$ test to a few hundredths of a dB. Mesh2HRTF does not: the $0.3\,\mathrm{dB}$ front-to-back tilt is a low-frequency discretisation / quadrature error.
+
+That matters for **low-frequency array design**. In a superdirective beamformer (MVDR, LCMV) a few tenths of a dB of false magnitude — and the associated phase — change the white-noise gain and the realised directivity. Treat Mesh2HRTF TFs below a few hundred hertz with extra regularisation, or cross-check that band with another solver, before freezing weights.
 
 
 
