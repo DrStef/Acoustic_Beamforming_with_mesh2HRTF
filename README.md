@@ -19,8 +19,8 @@ September 2026  <br>
 
 <div align="center">
 
-| <p align="center"> <img src="./pictures/Kemar+VRHeadset_v01.png" alt="Sphere validation" width="55%"> </p> | <p align="center"> <img src="./pictures/Mesh_VR_Kemar_v001.png" alt="Sphere validation" width="90%"> </p> |
-| :---: | :---: |
+| <p align="center"> <img src="./pictures/Mesh_VR_Kemar_v001.png" alt="Sphere validation" width="80%"> </p> |
+|  :---: |
 
 </div>
 
