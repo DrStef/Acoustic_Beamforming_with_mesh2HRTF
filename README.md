@@ -391,6 +391,9 @@ is about $0.2\,\mathrm{dB}$ off a reference solver, and it stops the
 beam from fitting solver noise. Directivity index (DI) and the
 *realised* WNG are plotted against frequency for the same weights.
 
+Note: For an $N$-element array in an ideal **free-field** environment, the theoretical maximum directivity index approaches $10 \log_{10}(N^2) ~12 dB$ (or $20 \log_{10}(N)$), while the maximum white-noise gain scales as $10 \log_{10}(N) ~6 dB$ (see, e.g., Gary W. Elko's foundational chapters on microphone array spatial filtering in Digital Signal Processing Handbook).
+
+
 The linear algebra is in the Appendix. The optimiser itself is not
 published; the TFs and the example patterns are.
 
@@ -405,6 +408,11 @@ published; the TFs and the example patterns are.
 
 ### 3D Directivity Patterns
 
+The following 3D polar plots illustrate the spatial directivity and directional gain of the 4-microphone MVDR beamformer at representative frequencies (200 Hz, 1 kHz, and 4 kHz).
+
+These spatial snapshots provide a direct visual counterpart to the frequency-dependent Directivity Index (DI) and White Noise Gain (WNG) curves shown above, highlighting how spatial selectivity and lobe shaping evolve across the spectrum—from the broad low-frequency response to tighter directional control at higher frequencies.
+
+
 <div align="center">
 
 | <p align="center"><img src="./pictures/array51_kemar_VR_headset_Beam3D_200Hz.png" alt="MVDR 200 Hz" width="260"></p>  | <p align="center"><img src="./pictures/array51_kemar_VR_headset_Beam3D_1kHz.png" alt="MVDR 1 kHz" width="260"></p>  | <p align="center"><img src="./pictures/array51_kemar_VR_headset_Beam3D_4kHz.png" alt="MVDR 4 kHz" width="260"></p>  |
@@ -414,6 +422,10 @@ published; the TFs and the example patterns are.
 </div>
 
 ### Directivity v. Frequency (Hz) - Horizontal Plane z=0 
+
+The directivity pattern in the $z=0$ plane clearly reveals the onset of spatial aliasing starting around $6.5\text{–}7\text{ kHz}$. This behavior is directly governed by the inter-element microphone spacing of $d = 2.5\text{ cm}$. Following the fundamental spatial Nyquist criterion in a free-field environment ($f_c = c / 2d$, where $c \approx 343\text{ m/s}$), the critical aliasing frequency evaluates to approximately $6.86\text{ kHz}$. Beyond this threshold, the spatial sampling interval exceeds $\lambda/2$, leading to the emergence of unwanted grating lobes and a loss of directional integrity in the horizontal plane.
+
+
 
 <div align="center">
 
