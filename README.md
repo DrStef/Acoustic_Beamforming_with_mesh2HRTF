@@ -264,7 +264,7 @@ That matters for **low-frequency array design**. In a superdirective beamformer 
 
 
 
-## Part II: Microphone array I — far field MVDR beamforming <br> Fixed look direction $(1,0,0)$
+## Part II: Microphone array I — far field MVDR beamforming <br> Fixed look direction $(1,0,0) m$
 
 
 ### 1. Overview & Objectives
@@ -368,9 +368,9 @@ $500\,\mathrm{Hz}$, ramping to $-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$).
 
 <div align="center">
 
-|<p align="center"> <img src="./pictures/array51_kemar_VR_headset_mics1234.png" alt="Four microphone seats" width="300"></p>|<p align="center"><img src="./pictures/array51_kemar_VR_headset_pboundary_mics4.png" alt="magnitude(p) on the skin, one point source" width="450"></p>|   
+|<p align="center"> <img src="./pictures/array51_kemar_VR_headset_mics1234.png" alt="Four microphone seats" width="300"></p>|<p align="center"><img src="./pictures/array51_kemar_VR_headset_pboundary_mics4.png" alt="magnitude(p) on the skin, one point source" width="470"></p>|   
 |:---:|:---:|
-|<p align="center"> <i> 4 microphones linear array - Configuration  </i> </p>|<p align="center"> <i> Pressure field - source_4 4 kHz </i> </p>|
+|<p align="center"> <i> 4 microphones linear array - Configuration  </i> </p>|<p align="center"> <i> Boundary pressure field - mic_4 at 4 kHz </i> </p>|
 
 </div>
 
