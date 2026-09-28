@@ -33,7 +33,7 @@ September 2026  <br>
 
 ## Overview
 
-Can a *free* Burton–Miller + FMM solver reliably replace closed-source BEM codes for array design on complex geometries (dummy + headset) within the critical **$100\,\mathrm{Hz}$–$8\,\mathrm{kHz}$** AR/VR audio band? 
+Can a *free* Burton–Miller + FMM solver reliably replace closed-source BEM codes for array design on complex geometries (dummy + headset) within the critical **$100 Hz – 8 kHz$** AR/VR audio band? 
 
 This repository provides open BEM data, validation benchmarks, and array processing examples using a small MVDR (Minimum Variance Distortionless Response) beamformer. White-noise gain (WNG) is floored at $-25\,\mathrm{dB}$ below $500\,\mathrm{Hz}$, ramping to $-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$.
 
