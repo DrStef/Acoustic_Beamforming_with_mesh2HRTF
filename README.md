@@ -13,7 +13,7 @@ September 2026  <br>
 <br>
 
 
-**Numerical acoustic array processing and 4-microphone MVDR beamforming for KEMAR with a generic VR headset using open BEM (Mesh2HRTF).**
+**Numerical acoustic array processing and 4-microphone MVDR beamforming for KEMAR with a generic VR headset using an open Boundary Element Method code:  Mesh2HRTF.**
 
 
 
