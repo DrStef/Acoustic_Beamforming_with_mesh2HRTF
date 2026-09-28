@@ -19,7 +19,7 @@ September 2026  <br>
 
 <div align="center">
 
-| <p align="center"> <img src="./pictures/Mesh_VR_Kemar_v001.png" alt="Sphere validation" width="80%"> </p> |
+| <p align="center"> <img src="./pictures/Mesh_VR_Kemar_v001.png" alt="Sphere validation" width="50%"> </p> |
 |  :---: |
 
 </div>
