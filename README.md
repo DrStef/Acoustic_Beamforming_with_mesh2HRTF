@@ -19,9 +19,6 @@ September 2026  <br>
 
 
 
-
-# KEMAR + VR Headset — Acoustic Beamforming with Mesh2HRTF
-
 ## Overview
 
 Can a *free* Burton–Miller + FMM solver reliably replace closed-source BEM codes for array design on complex geometries (dummy + headset) within the critical **$100\,\mathrm{Hz}$–$8\,\mathrm{kHz}$** AR/VR audio band? 
