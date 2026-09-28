@@ -83,6 +83,8 @@ continues with Fabian Brinkmann (TU Berlin) and Katharina Pollack (ARI).
 - Kreuzer et al., *"An open-source boundary element method solver for acoustics"* — **Eng. Anal. Bound. Elem.**, 2024 (Burton–Miller + FMM).
 - Morse & Ingard, *Theoretical Acoustics*, McGraw-Hill / Princeton University Press, 1968/1986.
 
+<br>
+<br>
 
 ## Part I — Validation of the Mesh2HRTF BEM Solver <br> (Rigid Sphere, $a = 0.1\,\mathrm{m}$)
 
@@ -247,6 +249,8 @@ More mature commercial BEM codes pass the $ka \approx 0.1$ test to a few hundred
 
 That matters for **low-frequency array design**. In a superdirective beamformer (MVDR, LCMV) a few tenths of a dB of false magnitude — and the associated phase — change the white-noise gain and the realised directivity. Treat Mesh2HRTF TFs below a few hundred hertz with extra regularisation, or cross-check that band with another solver, before freezing weights.
 
+<br>
+<br>
 
 
 
@@ -254,6 +258,9 @@ That matters for **low-frequency array design**. In a superdirective beamformer 
 
 
 ### 1. Overview & Objectives
+
+
+---
 
 ### 2. KEMAR + VR headset: the CAD file
 
@@ -363,6 +370,7 @@ Boundary $|p|$ for one $2\,\mathrm{mm}$ point source (vertex-interpolated
 display). The optimiser is not published; the TFs are.
 
 
+---
 
 ### 3. Transfer functions mic 1 2 3 4 / $(1,0,0)$
 
@@ -395,6 +403,8 @@ $-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$). That extra regularisation
 keeps $w_{\mathrm{opt}}(f)$ and the directivity index smooth instead of
 fitting the $0.2\,\mathrm{dB}$ solver noise.
 
+---
+
 ### 4. Computation of MVDR beamforming weights — DI and WNG
 
 The four TFs at $\mathbf{r}_{\mathrm{look}}=(1,0,0)\,\mathrm{m}$ form the
@@ -424,6 +434,8 @@ published; the TFs and the example patterns are.
 
 </div>
 
+---
+
 ### 5. 3D Directivity Patterns
 
 The following 3D polar plots illustrate the spatial directivity and directional gain of the 4-microphone MVDR beamformer at representative frequencies (200 Hz, 1 kHz, and 4 kHz).
@@ -438,6 +450,8 @@ These spatial snapshots provide a direct visual counterpart to the frequency-dep
 |<p align="center"><i> 200 Hz </i></p> | <p align="center"> <i> 1000 Hz </i></p> | <p align="center"><i> 4000 Hz </i></p>  |
 
 </div>
+
+---
 
 ### 6. Directivity v. Frequency (Hz) - Horizontal Plane z=0 
 
@@ -454,7 +468,7 @@ The directivity pattern in the $z=0$ plane clearly reveals the onset of spatial 
 </div>
 
 
-
+---
 
 ### 7. Reproducing the BEM run
 
@@ -476,6 +490,7 @@ frequency. We have not found a clean NumCalc switch for that yet.
 Geometry, $c=346.18\,\mathrm{m/s}$, FMM cluster diameter $0.05\,\mathrm{m}$,
 and the $2\,\mathrm{mm}$ standoff are documented in `NC.inp`.
 
+---
 
 ## References
 
