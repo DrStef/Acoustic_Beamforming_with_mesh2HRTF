@@ -1,6 +1,6 @@
 # KEMAR + VR Headset — Acoustic Beamforming with Mesh2HRTF
 
-Numerical Transfer Functions (TFs) for a 4-microphone array integrated into a KEMAR dummy fitted with a generic VR headset. Computed using open-source BEM (**Mesh2HRTF / NumCalc**) and validated against reference FEM/BEM models. 
+Numerical Transfer Functions (TFs) for a 4-microphone array integrated into a KEMAR dummy fitted with a generic VR headset. Computed using open-source BEM (**Mesh2HRTF / NumCalc**) and validated against analytical models and reference FEM/BEM models. 
 
 > [!NOTE]
 > **Repository Scope:** We publish the meshes, the computed transfer functions (TFs), and example MVDR beamforming patterns. **The optimizer itself is not published.**
