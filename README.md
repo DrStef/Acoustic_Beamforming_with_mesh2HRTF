@@ -468,7 +468,7 @@ ISBN 0-691-02401-4.
 
 ##  APPENDIX:  Robust Beamforming: MVDR, WNG Constraint & LCMV
 
-## 1. Problem Formulation – Standard MVDR
+### 1. Problem Formulation – Standard MVDR
 
 We seek the optimal beamformer weights $\mathbf{w}(f)$ that minimize the output noise power while enforcing a distortionless response in the look direction $\mathbf{d}(f)$:
 
@@ -483,7 +483,7 @@ $$
 \mathbf{w}_{\text{MVDR}}(f) = \frac{\mathbf{R}_{vv}(f)^{-1} \mathbf{d}(f)}{\mathbf{d}^H(f) \mathbf{R}_{vv}(f)^{-1} \mathbf{d}(f)}
 $$
 
-## 2. White Noise Gain (WNG) Constraint
+### 2. White Noise Gain (WNG) Constraint
 
 In practice, the pure MVDR solution is often overly sensitive to sensor noise, calibration errors and steering vector mismatches.  
 To improve robustness we impose a **White Noise Gain** constraint:
@@ -494,7 +494,7 @@ $$
 
 This is equivalent to limiting the $\ell_2$-norm of the weight vector.
 
-### Practical realisation – Diagonal Loading
+#### Practical realisation – Diagonal Loading
 
 A simple and effective way to enforce the WNG constraint is **diagonal loading** (Tikhonov regularisation):
 
@@ -508,7 +508,7 @@ $$
 
 By sweeping the loading factor $\alpha$ (or $\sigma^2$) we obtain the classic trade-off between Directivity Index (DI) and White Noise Gain (WNG).
 
-## 3. Linearly Constrained Minimum Variance (LCMV)
+### 3. Linearly Constrained Minimum Variance (LCMV)
 
 When more than one spatial constraint is required we generalise MVDR to the **LCMV** beamformer.
 
@@ -539,7 +539,7 @@ Typical use-cases on the Kemar + VR Headset array:
 - **Look beamformer**: $\mathbf{g}=[1,0]^T$ (distortionless at 0°, null at 180°)
 - **Noise-channel beamformer**: $\mathbf{g}=[0,1]^T$ (null at 0°, distortionless at 180°)
 
-## 4. Directivity Index (DI) on the Sphere
+### 4. Directivity Index (DI) on the Sphere
 
 The Directivity Index quantifies how much the array concentrates energy in the look direction relative to an isotropic response.
 
@@ -568,7 +568,7 @@ When the look-direction constraint $\mathbf{w}^H\mathbf{d}_0=1$ is enforced, the
 
 
 
-## 5. The Pareto Front
+### 5. The Pareto Front
 
 When optimising two conflicting objectives (Directivity Index versus White Noise Gain) the set of optimal trade-off solutions forms the **Pareto front**.
 
@@ -578,7 +578,7 @@ When optimising two conflicting objectives (Directivity Index versus White Noise
 
 In our implementation the Pareto front is traced simply by sweeping the diagonal-loading parameter $\alpha$ (or $\sigma^2$) and recording the resulting (DI, WNG) pairs.
 
-## 6. Summary for the Kemar + VR Headset study
+### 6. Summary for the Kemar + VR Headset study
 
 | Beamformer              | Constraints              | Typical use                     | Robustness control      |
 |-------------------------|--------------------------|---------------------------------|-------------------------|
