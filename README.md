@@ -13,10 +13,37 @@ Can a *free* Burton–Miller + FMM solver reliably replace closed-source BEM cod
 
 This repository provides open BEM data, validation benchmarks, and array processing examples using a small MVDR (Minimum Variance Distortionless Response) beamformer. White-noise gain (WNG) is floored at $-25\,\mathrm{dB}$ below $500\,\mathrm{Hz}$, ramping to $-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$.
 
+#### Introduction 
+
+Open BEM (Mesh2HRTF / NumCalc) is used to compute microphone transfer
+functions on rigid bodies, then to build a small MVDR beamformer.
+
+The point is practical: can a *free* Burton–Miller + FMM solver replace
+a closed BEM code for array design on a dummy and a headset, in the
+$100\,\mathrm{Hz}$–$8\,\mathrm{kHz}$ band that matters for AR / VR?
+
+We do not publish the optimiser. We publish the meshes, the TFs, and
+example MVDR patterns (white-noise gain floored at $-25\,\mathrm{dB}$
+below $500\,\mathrm{Hz}$, ramping to $-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$).
+
 ### Repository Structure
 
 - **Part I — Validation on a Rigid Sphere ($a = 0.10\,\mathrm{m}$):** Compares an Ico-4 mesh against the analytical Morse plane-wave solution using a reciprocal point source ($2\,\mathrm{mm}$ off-skin) and $10\,\mathrm{m}$ observers to establish numerical tolerances and solver trust.
+
+An Ico-4 mesh is compared with the Morse plane-wave solution, using a
+reciprocal point source $2\,\mathrm{mm}$ off the skin and observers at
+$10\,\mathrm{m}$. That run fixes the units, the standoff, and the
+trust we can put in NumCalc.
+
 - **Part II — KEMAR + VR Headset (4-Mic MVDR):** Integrates a KEMAR-style dummy with a generic VR headset. Evaluates a linear $2.5\,\mathrm{cm}$ microphone array, far-field TFs toward $\mathbf{r}=(1,0,0)\,\mathrm{m}$, boundary pressures, and Directivity Index (DI) / WNG performance.
+
+A KEMAR-style dummy is merged with a simplified generic headset. Four
+point sources on a linear $2.5\,\mathrm{cm}$ line feed far-field TFs
+toward $\mathbf{r}=(1,0,0)\,\mathrm{m}$ (fixed look). Boundary $|p|$,
+a planar cut of the beampattern, and DI / WNG vs frequency are the
+public figures.
+
+Company page: [bloo-audio.com/array51](https://www.bloo-audio.com/array51)
 
 ---
 
@@ -30,50 +57,6 @@ This repository provides open BEM data, validation benchmarks, and array process
 Development and tools used in this work trace back to foundational acoustic research collaborations:
 - **Mesh2HRTF Pipeline:** Developed at the Acoustics Research Institute (ÖAW, Vienna) by Harald Ziegelwanger, Wolfgang Kreuzer, and Piotr Majdak, with ongoing contributions from Fabian Brinkmann (TU Berlin) and Katharina Pollack (ARI).
 
-### Key References
-
-- Ziegelwanger, Majdak, Kreuzer, *"Numerical calculation of head-related transfer functions: A review"* — **J. Acoust. Soc. Am.**, 2015.
-- Brinkmann et al., *"A Blender-Based Open-Source Pipeline for Head-Related Transfer Function Calculation"* — **J. Audio Eng. Soc.**, 2023.
-- Kreuzer et al., *"An open-source boundary element method solver for acoustics"* — **Eng. Anal. Bound. Elem.**, 2024 (Burton–Miller + FMM).
-- Morse & Ingard, *Theoretical Acoustics*, McGraw-Hill / Princeton University Press, 1968/1986.
-
-
-
-
-# KEMAR + VR headset — beamforming with Mesh2HRTF
-
-Numerical TFs for a 4-microphone array on a dummy + headset. Open BEM (Mesh2HRTF / NumCalc). Comparison with a reference FEM/BEM model. Beamforming examples use these TFs; the optimizer itself is not published.
-
-## Introduction 
-
-Open BEM (Mesh2HRTF / NumCalc) is used to compute microphone transfer
-functions on rigid bodies, then to build a small MVDR beamformer.
-
-The point is practical: can a *free* Burton–Miller + FMM solver replace
-a closed BEM code for array design on a dummy and a headset, in the
-$100\,\mathrm{Hz}$–$8\,\mathrm{kHz}$ band that matters for AR / VR?
-
-We do not publish the optimiser. We publish the meshes, the TFs, and
-example MVDR patterns (white-noise gain floored at $-25\,\mathrm{dB}$
-below $500\,\mathrm{Hz}$, ramping to $-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$).
-
-**Part I — Validation on a rigid sphere** ($a=0.10\,\mathrm{m}$).
-An Ico-4 mesh is compared with the Morse plane-wave solution, using a
-reciprocal point source $2\,\mathrm{mm}$ off the skin and observers at
-$10\,\mathrm{m}$. That run fixes the units, the standoff, and the
-trust we can put in NumCalc.
-
-**Part II — KEMAR + VR headset, 4-microphone MVDR.**
-A KEMAR-style dummy is merged with a simplified generic headset. Four
-point sources on a linear $2.5\,\mathrm{cm}$ line feed far-field TFs
-toward $\mathbf{r}=(1,0,0)\,\mathrm{m}$ (fixed look). Boundary $|p|$,
-a planar cut of the beampattern, and DI / WNG vs frequency are the
-public figures.
-
-Company page: [bloo-audio.com/array51](https://www.bloo-audio.com/array51)
-
-## Acknowledgements
-
 This work uses **Mesh2HRTF / NumCalc**
 (https://github.com/Any2HRTF/Mesh2HRTF).
 
@@ -81,118 +64,12 @@ Development started at the Acoustics Research Institute (ÖAW, Vienna)
 with Harald Ziegelwanger, Wolfgang Kreuzer and Piotr Majdak, and
 continues with Fabian Brinkmann (TU Berlin) and Katharina Pollack (ARI).
 
-Please cite:
+### Key References
 
-- Ziegelwanger, Majdak, Kreuzer, *J. Acoust. Soc. Am.* 2015
-- Brinkmann et al., *J. Audio Eng. Soc.* 2023
-- Kreuzer et al., *Eng. Anal. Bound. Elem.* 2024
-
-
-
-
-
-
-
-# Part I — Validation of the Mesh2HRTF BEM solver - Rigid Sphere a= 0.1 m
-
-Rigid sphere, radius \(a = 0.1\,\mathrm{m}\). Ico-5 mesh: 5120 faces, mean edge \(\approx 7.5\,\mathrm{mm}\) (\(\approx\lambda/6\) at 8 kHz, \(c = 346.18\,\mathrm{m/s}\)).  
-Evaluation at \(r = 10\,\mathrm{m}\) (and 1.5 m for near-field checks).
-
-### Point-source standoff
-
-Wiki floor: source \(\geq 0.3\,\mathrm{mm}\) outside the skin.  
-Kreuzer: about one mean edge. We scanned **5 / 2 / 1 mm** on \(+x\).
-
-
-<div align="center">
-
-standoff | x (m) | high frequency | low frequency
---- | --- | --- | ---
-5 mm | 0.105 | drop above 5 kHz (0 and 30 deg) | good
-2 mm | 0.102 | best, near 6 dB baffle step | good
-1 mm | 0.101 | crushed above 3 kHz, ~5.5 dB at 7–8 kHz | best LF collapse to 0 dB
-
-</div>
-
-**Working choice: 2 mm.** Same offset used later on the VR headset.
-
-### Other checks
-
-- Ico vs UV body mesh: elongated polar triangles on UV pollute 100 Hz and poles; Ico does not
-- FMM cluster diameter 0.05 vs 0.025 m: **no change** on the look TF
-- Piston vs point: piston needs the area factor \(S\); point uses \(P_0=1\) i.e. \(e^{ikR}/(4\pi R)\). At 1 m, \(20\log_{10}(4\pi)\approx +22\,\mathrm{dB}\) to reach 1 Pa
-
-Figures: Ico balloon / \(|H(\phi)|\) at 0–150°, 100 Hz–8 kHz (notebook `SPHERE`).
-
-
-## Solver
-
-NumCalc solves the Helmholtz equation with a **Burton–Miller collocation BEM**.
-Optionally the **multilevel fast multipole method (ML-FMM)** replaces
-element-to-element coupling by cluster-to-cluster coupling.
-We used ML-FMM (cluster diameter 0.05 m). Changing it to 0.025 m did not
-change the look-direction TFs on this mesh.
-
-References: Kreuzer et al. 2024; Brinkmann et al. JAES 2023.
-
-Doc pratique  Wiki : https://github.com/Any2HRTF/Mesh2HRTF/wiki  
-Site : https://mesh2hrtf.org/  
-API Python : https://mesh2hrtf.readthedocs.io/
-
-Théorie (à citer, pas à recopier)  BEM tête / maillage : Ziegelwanger, Majdak, Kreuzer, JASA 2015  
-Pipeline Mesh2HRTF : Brinkmann et al., JAES 2023  
-NumCalc (solver) : Kreuzer et al., Eng. Anal. Bound. Elem. 2024 — Burton–Miller + FMM
-Morse and Ingrad (1968)
-
-## Sphere validation — plane wave vs reciprocal point source
-
-We compare two related but distinct problems that should agree closely
-on the rigid-sphere boundary and, by reciprocity, at far-field points
-at \(r = 10\,\mathrm{m}\):
-
-- analytical scattering of a plane wave (Morse);
-- a point source placed a few millimetres outside the skin (Mesh2HRTF / NumCalc),
-  used as a reciprocal stand-in for a surface microphone.
-
-\(|p|\) is reported on the boundary at \(0^\circ, 30^\circ, 60^\circ, 90^\circ, 120^\circ, 150^\circ, 180^\circ\).
-Overall the match is excellent from \(100\,\mathrm{Hz}\) to \(8\,\mathrm{kHz}\)
-
-
-###  BEM model
-
-The rigid sphere and its Ico mesh were built in Blender, then exported with the Mesh2HRTF preprocessor (`mesh2input`) to generate the NumCalc input (`NC.inp` and surface meshes).
-
-The rigid-sphere mesh is an icosahedral triangulation with **4 subdivisions**
-(**5120 triangular elements**, **2562 nodes**). The mean edge length is
-**$h \approx 7.53\,\mathrm{mm}$** (about $7.5\,\mathrm{mm}$).
-
-With $c = 346.18\,\mathrm{m/s}$, the usual rule of six elements per wavelength
-($\lambda/6$) holds up to
-
-$$
-f_{\lambda/6} = \frac{c}{6h} \approx 7.7\,\mathrm{kHz}.
-$$
-
-<div align="center">
-
-|<p align="center"> <img src="./pictures/Blender_Sphere_BEM.png" alt="Sphere validation" width="55%">  </p>  |<p align="center"> <img src="./pictures/Sphere_PointSource_1kHz.png" alt="Sphere validation" width="90%">  </p> |
-|                              ---                                               |  -----   |
-| <p align="center"> <i> BEM model - Rigid Sphere   radius a=0.1m <br> 5120 triangular elements, 2562 nodes (Blender) </i> </p>   |    <p align="center"> <i> mshr2HSRTF: Pressure field on boundary 1kHz <br> point source at (x,y,z)=(0.102,0,0) m </i>        </p>           |
-
-</div>
-
-At $8\,\mathrm{kHz}$ the mesh is slightly coarser than $\lambda/6$
-($\approx\lambda/5.75$). Burton–Miller collocation BEM often needs **more than
-six elements per wavelength** at high $ka$, so part of the residual mismatch
-above $ka \approx 10$ ($\approx 5.5\,\mathrm{kHz}$) — in particular the
-$0.2\,\mathrm{dB}$ drop at $0^\circ$ and $30^\circ$ toward $6$–$8\,\mathrm{kHz}$ —
-is consistent with discretisation / quadrature rather than a geometry error.
-A five-subdivision Ico mesh ($20\,480$ faces, $h \approx 3.8\,\mathrm{mm}$)
-would put $\lambda/6$ well above $8\,\mathrm{kHz}$ if a tighter high-frequency
-check is required.
-
-
-
+- Ziegelwanger, Majdak, Kreuzer, *"Numerical calculation of head-related transfer functions: A review"* — **J. Acoust. Soc. Am.**, 2015.
+- Brinkmann et al., *"A Blender-Based Open-Source Pipeline for Head-Related Transfer Function Calculation"* — **J. Audio Eng. Soc.**, 2023.
+- Kreuzer et al., *"An open-source boundary element method solver for acoustics"* — **Eng. Anal. Bound. Elem.**, 2024 (Burton–Miller + FMM).
+- Morse & Ingard, *Theoretical Acoustics*, McGraw-Hill / Princeton University Press, 1968/1986.
 
 
 ## Part I — Validation of the Mesh2HRTF BEM Solver <br> (Rigid Sphere, $a = 0.1\,\mathrm{m}$)
@@ -204,6 +81,17 @@ To establish numerical tolerances and build trust in our BEM workflow, we valida
 - **Reciprocal point source** placed a few millimeters outside the skin (Mesh2HRTF / NumCalc), acting as a stand-in for a surface microphone.
 
 Evaluations span $100\,\mathrm{Hz}$ to $8\,\mathrm{kHz}$ with pressure magnitude $\vert{}p\vert{}$ reported across meridional angles ($0^\circ$ to $180^\circ$).
+
+We compare two related but distinct problems that should agree closely
+on the rigid-sphere boundary and, by reciprocity, at far-field points
+at \(r = 10\,\mathrm{m}\):
+
+- analytical scattering of a plane wave (Morse);
+- a point source placed a few millimetres outside the skin (Mesh2HRTF / NumCalc),
+  used as a reciprocal stand-in for a surface microphone.
+
+\(|p|\) is reported on the boundary at \(0^\circ, 30^\circ, 60^\circ, 90^\circ, 120^\circ, 150^\circ, 180^\circ\).
+Overall the match is excellent from \(100\,\mathrm{Hz}\) to \(8\,\mathrm{kHz}\)
 
 ---
 
@@ -217,7 +105,30 @@ The rigid sphere and its icosahedral (Ico) mesh were generated in Blender and ex
 - **Frequency Limit ($\lambda/6$ rule):** 
   $$f_{\lambda/6} = \frac{c}{6h} \approx 7.7\,\mathrm{kHz}$$
 
+
+
+####  BEM mesh
+
+At $8\,\mathrm{kHz}$ the mesh is slightly coarser than $\lambda/6$
+($\approx\lambda/5.75$). Burton–Miller collocation BEM often needs **more than
+six elements per wavelength** at high $ka$, so part of the residual mismatch
+above $ka \approx 10$ ($\approx 5.5\,\mathrm{kHz}$) — in particular the
+$0.2\,\mathrm{dB}$ drop at $0^\circ$ and $30^\circ$ toward $6$–$8\,\mathrm{kHz}$ —
+is consistent with discretisation / quadrature rather than a geometry error.
+A five-subdivision Ico mesh ($20\,480$ faces, $h \approx 3.8\,\mathrm{mm}$)
+would put $\lambda/6$ well above $8\,\mathrm{kHz}$ if a tighter high-frequency
+check is required.
+
+
+
 #### Solver Engine (NumCalc)
+
+NumCalc solves the Helmholtz equation with a **Burton–Miller collocation BEM**.
+Optionally the **multilevel fast multipole method (ML-FMM)** replaces
+element-to-element coupling by cluster-to-cluster coupling.
+We used ML-FMM (cluster diameter 0.05 m). Changing it to 0.025 m did not
+change the look-direction TFs on this mesh.
+
 NumCalc solves the Helmholtz equation using a **Burton–Miller collocation BEM**, optionally accelerated by the **Multilevel Fast Multipole Method (ML-FMM)** for cluster-to-cluster coupling. 
 - *Working configuration:* ML-FMM with a cluster diameter of $0.05\,\mathrm{m}$ (changing this to $0.025\,\mathrm{m}$ showed no noticeable change on the look-direction transfer function).
 
@@ -327,7 +238,7 @@ That matters for **low-frequency array design**. In a superdirective beamformer 
 
 
 
-## Part II: Microphone array I — far field, fixed look $(1,0,0)$
+## Part II: Microphone array I — far field MVDR beamforming <br> Fixed look direction $(1,0,0)$
 
 
 ### 1. Overview & Objectives
