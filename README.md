@@ -466,5 +466,129 @@ Princeton University Press, Princeton, NJ, 1986
 ISBN 0-691-02401-4.
 
 
+##  APPENDIX:  Robust Beamforming: MVDR, WNG Constraint & LCMV
+
+## 1. Problem Formulation – Standard MVDR
+
+We seek the optimal beamformer weights $\mathbf{w}(f)$ that minimize the output noise power while enforcing a distortionless response in the look direction $\mathbf{d}(f)$:
+
+$$
+\min_{\mathbf{w}} \quad \mathbf{w}^H \mathbf{R}_{vv}(f) \mathbf{w}
+\quad \text{subject to} \quad \mathbf{w}^H \mathbf{d}(f) = 1
+$$
+
+The closed-form solution is the classic MVDR beamformer:
+
+$$
+\mathbf{w}_{\text{MVDR}}(f) = \frac{\mathbf{R}_{vv}(f)^{-1} \mathbf{d}(f)}{\mathbf{d}^H(f) \mathbf{R}_{vv}(f)^{-1} \mathbf{d}(f)}
+$$
+
+## 2. White Noise Gain (WNG) Constraint
+
+In practice, the pure MVDR solution is often overly sensitive to sensor noise, calibration errors and steering vector mismatches.  
+To improve robustness we impose a **White Noise Gain** constraint:
+
+$$
+\text{WNG}(f) = \frac{|\mathbf{w}^H \mathbf{d}|^2}{\mathbf{w}^H \mathbf{w}} \geq \text{WNG}_{\min}
+$$
+
+This is equivalent to limiting the $\ell_2$-norm of the weight vector.
+
+### Practical realisation – Diagonal Loading
+
+A simple and effective way to enforce the WNG constraint is **diagonal loading** (Tikhonov regularisation):
+
+$$
+\mathbf{w}(f,\alpha) = \frac{ \bigl(\mathbf{R}_{vv}(f) + \alpha \mathbf{I}\bigr)^{-1} \mathbf{d}(f) }
+{ \mathbf{d}^H(f) \bigl(\mathbf{R}_{vv}(f) + \alpha \mathbf{I}\bigr)^{-1} \mathbf{d}(f) }
+$$
+
+- $\alpha = 0$ → pure MVDR (highest directivity, lowest robustness)
+- $\alpha \to \infty$ → approaches Delay-and-Sum (highest robustness, lower directivity)
+
+By sweeping the loading factor $\alpha$ (or $\sigma^2$) we obtain the classic trade-off between Directivity Index (DI) and White Noise Gain (WNG).
+
+## 3. Linearly Constrained Minimum Variance (LCMV)
+
+When more than one spatial constraint is required we generalise MVDR to the **LCMV** beamformer.
+
+We now enforce a set of linear constraints:
+
+$$
+\mathbf{C}^H \mathbf{w} = \mathbf{g}
+$$
+
+where
+- $\mathbf{C} = [\mathbf{d}_0,\; \mathbf{d}_{180},\; \dots]$ contains the steering vectors of the constrained directions,
+- $\mathbf{g}$ is the desired response vector (e.g. $[1, 0]^T$ for look-direction distortionless + null at 180°).
+
+The closed-form LCMV solution is:
+
+$$
+\mathbf{w}_{\text{LCMV}} = \mathbf{R}_{vv}^{-1}\mathbf{C}\bigl(\mathbf{C}^H\mathbf{R}_{vv}^{-1}\mathbf{C}\bigr)^{-1}\mathbf{g}
+$$
+
+With diagonal loading the same regularisation principle applies:
+
+$$
+\mathbf{w}_{\text{LCMV}}(\alpha) = (\mathbf{R}_{vv}+\alpha\mathbf{I})^{-1}\mathbf{C}
+\Bigl(\mathbf{C}^H(\mathbf{R}_{vv}+\alpha\mathbf{I})^{-1}\mathbf{C}\Bigr)^{-1}\mathbf{g}
+$$
+
+Typical use-cases on the Kemar + VR Headset array:
+- **Look beamformer**: $\mathbf{g}=[1,0]^T$ (distortionless at 0°, null at 180°)
+- **Noise-channel beamformer**: $\mathbf{g}=[0,1]^T$ (null at 0°, distortionless at 180°)
+
+## 4. Directivity Index (DI) on the Sphere
+
+The Directivity Index quantifies how much the array concentrates energy in the look direction relative to an isotropic response.
+
+**Continuous definition** (exact theoretical expression):
+
+$$
+\text{DI}(f) = 10\log_{10}\left(\frac{4\pi\,|\mathbf{w}^H\mathbf{d}_0|^2}{\displaystyle\int_{S^2}|\mathbf{w}^H\mathbf{d}(\Omega)|^2\,d\Omega}\right)
+$$
+
+where the integral is performed over the unit sphere $S^2$ and $d\Omega=\sin\theta\,d\theta\,d\phi$.
+
+**Discrete approximation** used with the 2522-point COMSOL sphere:
+
+$$
+\text{DI}(f) \approx 10\log_{10}\left(\frac{N}{\displaystyle\sum_{i=1}^{N}|\mathbf{w}^H\mathbf{d}_i|^2}\right)
+$$
+
+or, more accurately with the surface element:
+
+$$
+\text{DI}(f) \approx 10\log_{10}\left(\frac{4\pi}{\Delta\Omega\displaystyle\sum_{i=1}^{N}|\mathbf{w}^H\mathbf{d}_i|^2\sin\theta_i}\right)
+$$
+
+where $N=2522$ and $\Delta\Omega$ is the solid-angle element corresponding to the spherical grid.  
+When the look-direction constraint $\mathbf{w}^H\mathbf{d}_0=1$ is enforced, the numerator simplifies to $4\pi$ (continuous) or $N$ (discrete uniform weighting).
+
+
+
+## 5. The Pareto Front
+
+When optimising two conflicting objectives (Directivity Index versus White Noise Gain) the set of optimal trade-off solutions forms the **Pareto front**.
+
+- Any point on the front is optimal: one metric cannot be improved without degrading the other.
+- Points above/left of the front are impossible.
+- Points below/right of the front are sub-optimal.
+
+In our implementation the Pareto front is traced simply by sweeping the diagonal-loading parameter $\alpha$ (or $\sigma^2$) and recording the resulting (DI, WNG) pairs.
+
+## 6. Summary for the Kemar + VR Headset study
+
+| Beamformer              | Constraints              | Typical use                     | Robustness control      |
+|-------------------------|--------------------------|---------------------------------|-------------------------|
+| MVDR                    | $\mathbf{w}^H\mathbf{d}_0=1$ | Maximum directivity             | Diagonal loading $\alpha$ |
+| MVDR + WNG constraint   | + $\text{WNG}\ge\text{WNG}_{\min}$ | Robust look-direction beam     | Sliding $\alpha$         |
+| LCMV (look + null)      | $\mathbf{w}^H\mathbf{d}_0=1$, $\mathbf{w}^H\mathbf{d}_{180}=0$ | Look beam with rear null       | Fixed or sliding $\alpha$ |
+| LCMV (Noise Channel)    | $\mathbf{w}^H\mathbf{d}_0=0$, $\mathbf{w}^H\mathbf{d}_{180}=1$ | Noise reference / rear lobe    | Fixed $\alpha$ (recommended) |
+
+All of the above have been implemented and validated on the 29-microphone Kemar + VR Headset BEM model (100 Hz – 4000 Hz).
+
+
 
 
