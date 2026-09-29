@@ -102,12 +102,7 @@ continues with Fabian Brinkmann (TU Berlin) and Katharina Pollack (ARI).
 ## Part II: Microphone array I — far field MVDR beamforming <br> Fixed look direction $(1,0,0) m$
 
 
-### 1. Overview & Objectives
-
-
----
-
-### 2. KEMAR + VR headset: the CAD file
+### 1. KEMAR + VR headset: the CAD file
 
 High-resolution geometry of a KEMAR-style head integrated with a **generic** VR headset.  
 Used as the domain for **open-source BEM** (Mesh2HRTF / NumCalc) to compute microphone transfer functions.
@@ -169,12 +164,6 @@ Beamforming examples (MVDR, near-field) can be built from these TFs; **the optim
 
 Company page: [bloo-audio.com/array51](https://www.bloo-audio.com/array51/)
 
-#### What this model is for
-
-- Array design on a dummy + headset (diffraction, shadowing)
-- Far-field TFs toward a 1 m sphere (and optional 10 m grid)
-- Inputs for MVDR / LCMV / Ambisonics / SSL — you bring the weights
-
 #### What we computed here
 
 - Reciprocal **point sources** at four headset microphone positions (right-side linear array, 2.5 cm spacing)
@@ -217,7 +206,7 @@ display). The optimiser is not published; the TFs are.
 
 ---
 
-### 3. Transfer functions mic 1 2 3 4 / $(1,0,0)$
+### 2. Transfer functions mic 1 2 3 4 / $(1,0,0)$
 
 Four reciprocal point sources sit $2\,\mathrm{mm}$ off the skin at the
 microphone seats. Each NumCalc run is the transfer function between
@@ -250,7 +239,7 @@ fitting the $0.2\,\mathrm{dB}$ solver noise.
 
 ---
 
-### 4. Computation of MVDR beamforming weights — DI and WNG
+### 3. Computation of MVDR beamforming weights — DI and WNG
 
 The four TFs at $\mathbf{r}_{\mathrm{look}}=(1,0,0)\,\mathrm{m}$ form the
 steering vector $\mathbf{d}(f)$. The noise field is taken **isotropic**:
@@ -281,7 +270,7 @@ published; the TFs and the example patterns are.
 
 ---
 
-### 5. 3D Directivity Patterns
+### 4. 3D Directivity Patterns
 
 The following 3D polar plots illustrate the spatial directivity and directional gain of the 4-microphone MVDR beamformer at representative frequencies (200 Hz, 1 kHz, and 4 kHz).
 
@@ -298,7 +287,7 @@ These spatial snapshots provide a direct visual counterpart to the frequency-dep
 
 ---
 
-### 6. Directivity v. Frequency (Hz) - Horizontal Plane z=0 
+### 5. Directivity v. Frequency (Hz) - Horizontal Plane z=0 
 
 The directivity pattern in the $z=0$ plane clearly reveals the onset of spatial aliasing starting around $6.5\text{–}7\text{ kHz}$. This behavior is directly governed by the inter-element microphone spacing of $d = 2.5\text{ cm}$. Following the fundamental spatial Nyquist criterion in a free-field environment ($f_c = c / 2d$, where $c \approx 343\text{ m/s}$), the critical aliasing frequency evaluates to approximately $6.86\text{ kHz}$. Beyond this threshold, the spatial sampling interval exceeds $\lambda/2$, leading to the emergence of unwanted grating lobes and a loss of directional integrity in the horizontal plane.
 
@@ -315,7 +304,7 @@ The directivity pattern in the $z=0$ plane clearly reveals the onset of spatial 
 
 ---
 
-### 7. Reproducing the BEM run
+### 6. Reproducing the BEM run
 
 The Mesh2HRTF project (`NC.inp`, surface mesh, evaluation grid) is in
 `bem/`. NumCalc solves a Burton–Miller system at each frequency.
