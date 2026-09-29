@@ -200,7 +200,7 @@ is about $0.2\,\mathrm{dB}$ off a reference solver, and it stops the
 beam from fitting solver noise. Directivity index (DI) and the
 *realised* WNG are plotted against frequency for the same weights.
 
-Note: For an $N$-element array in an ideal **free-field** environment, the theoretical maximum directivity index approaches $10 \log_{10}(N^2) ~12 dB$ (or $20 \log_{10}(N)$), while the maximum white-noise gain scales as $10 \log_{10}(N) ~6 dB$ (see, e.g., Gary W. Elko's foundational chapters on microphone array spatial filtering in Digital Signal Processing Handbook).
+Note: For an $N$-element array in an ideal **free-field** environment, the theoretical maximum directivity index approaches $10 \log_{10}(N^2) \approx 12 dB$, while the maximum white-noise gain scales as $10 \log_{10}(N) \approx 6 dB$ (see, e.g., Gary W. Elko's foundational chapters on microphone array spatial filtering in Digital Signal Processing Handbook).
 
 
 The linear algebra is in the Appendix. The optimiser itself is not
