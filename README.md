@@ -465,7 +465,7 @@ That matters for **low-frequency array design**. In a superdirective beamformer 
 
 ## References
 
-Théorie (à citer, pas à recopier)  BEM tête / maillage : Ziegelwanger, Majdak, Kreuzer, JASA 2015  
+Ziegelwanger, Majdak, Kreuzer, JASA 2015  
 Pipeline Mesh2HRTF : Brinkmann et al., JAES 2023  
 NumCalc (solver) : Kreuzer et al., Eng. Anal. Bound. Elem. 2024 — Burton–Miller + FMM
 Morse and Ingard, "Theoretical Acoustics" (1968)
