@@ -101,6 +101,16 @@ KEMAR-style dummy into a single watertight skin.
 The working file distributed here is an **STL** surface mesh (plus the
 Mesh2HRTF `ObjectMeshes` export).
 
+
+| <p align="center"> <img src="./pictures/head001-350x400.png" alt="Four microphone seats" width="300"></p> | <p align="center"> <img src="./pictures/CLeung_VRHeadset_v001.png" alt="Four microphone seats" width="300"></p>   |  <p align="center"> <img src="./pictures/VR_Kemar_TopView.png" alt="Four microphone seats" width="300"></p>    |  <p align="center"> <img src="./pictures/Kemar+VRHeadset_v01.png" alt="Four microphone seats" width="300"></p>    |
+|   |    |    |    |
+
+
+
+
+
+
+
 #### Coordinates and units
 
 Units are **metres**.
