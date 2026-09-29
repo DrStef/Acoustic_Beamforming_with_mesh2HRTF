@@ -281,6 +281,7 @@ standoff $2\,\mathrm{mm}$: see `NC.inp`.
 ```bash
 cd KemarVR_bem/NumCalc
 ./NumCalc
+```
 
 ---
 
