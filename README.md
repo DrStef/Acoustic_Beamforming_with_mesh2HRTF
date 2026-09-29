@@ -358,7 +358,7 @@ The Wiki guideline suggests a source standoff $\geq 0.3\,\mathrm{mm}$ outside th
 | :---: | :---: | :--- | :--- |
 | **$5\,\mathrm{mm}$** | $0.105\,\mathrm{m}$ | Drop above $5\,\mathrm{kHz}$ ($0^\circ$ and $30^\circ$) | Good |
 | **$2\,\mathrm{mm}$** | $0.102\,\mathrm{m}$ | **Best**, near $6\,\mathrm{dB}$ baffle step | Good |
-| **$1\,\mathrm{mm}$** | $0.101\,\mathrm{m}$ | Crushed above $3 \mathrm{kHz}$ ($\appro 5.5 \mathrm{dB}$ at $7 - 8 \mathrm{kHz}$) | Best LF collapse to $0 \mathrm{dB}$ |
+| **$1\,\mathrm{mm}$** | $0.101\,\mathrm{m}$ | Crushed above $3 \mathrm{kHz}$ ($\approx 5.5 \mathrm{dB}$ at $7 - 8 \mathrm{kHz}$) | Best LF collapse to $0 \mathrm{dB}$ |
 
 </div>
 
