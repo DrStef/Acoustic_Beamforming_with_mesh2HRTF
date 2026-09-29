@@ -180,7 +180,7 @@ Seats and standoff are those of §2.
 </div>
 
 Below $400\,\mathrm{Hz}$, mic~1 and mic~2 sit about $0.2\,\mathrm{dB}$
-off a reference FEM/BEM run — the same low-$ka$ bias as on the rigid sphere in Part I.
+off a reference FEM/BEM run — the same low $ka$ bias as on the rigid sphere in Part I.
 That mismatch is enough to wrinkle a superdirective MVDR. The WNG floor
 in the next section, is there so the weights follow the physics, not the solver noise.
 
