@@ -323,17 +323,9 @@ The rigid sphere and its icosahedral (Ico) mesh were generated in Blender and ex
 
 ####  BEM mesh
 
-At $8\,\mathrm{kHz}$ the mesh is slightly coarser than $\lambda/6$
-($\approx\lambda/5.75$). Burton–Miller collocation BEM often needs **more than
-six elements per wavelength** at high $ka$, so part of the residual mismatch
-above $ka \approx 10$ ($\approx 5.5\,\mathrm{kHz}$) — in particular the
-$0.2\,\mathrm{dB}$ drop at $0^\circ$ and $30^\circ$ toward $6$–$8\,\mathrm{kHz}$ —
-is consistent with discretisation / quadrature rather than a geometry error.
-A five-subdivision Ico mesh ($20\,480$ faces, $h \approx 3.8\,\mathrm{mm}$)
-would put $\lambda/6$ well above $8\,\mathrm{kHz}$ if a tighter high-frequency
-check is required.
-
-
+At $8\,\mathrm{kHz}$ the mesh is slightly coarser than $\lambda/6$ ($\approx\lambda/5.75$). Burton–Miller collocation BEM often needs **more than
+six elements per wavelength** at high $ka$, so part of the residual mismatch above $ka \approx 10$ ($\approx 5.5\,\mathrm{kHz}$) — in particular the
+$0.2\,\mathrm{dB}$ drop at $0^\circ$ and $30^\circ$ toward $6$–$8\,\mathrm{kHz}$ — is consistent with discretisation / quadrature rather than a geometry error. A five-subdivision Ico mesh ($20\,480$ faces, $h \approx 3.8\,\mathrm{mm}$) would put $\lambda/6$ well above $8\,\mathrm{kHz}$ if a tighter high-frequency check is required.
 
 #### Solver Engine (NumCalc)
 
@@ -433,10 +425,6 @@ microphone positions.
 ---
 
 ### 5. Practical Summary & Takeaways
-
-Mesh2HRTF proves to be a solid open BEM tool for AR/VR array design in the $100\,\mathrm{Hz}$–$8\,\mathrm{kHz}$ band. However, note the following nuances:
-- A $0.3\,\mathrm{dB}$ front-to-back tilt occurs at low frequencies ($ka \approx 0.1$), representing a discretization/quadrature error rather than physical asymmetry.
-- For superdirective beamformers (MVDR/LCMV), this small magnitude and phase discrepancy affects white-noise gain. Consequently, low-frequency weights require careful regularization (e.g., WNG flooring) before freezing final array designs.
 
 Treat Mesh2HRTF as a solid open BEM tool for research and array design —
 MVDR / LCMV, binaural beamforming, and SSL — in the **\(100\)–\(8000\,\mathrm{Hz}\)**
