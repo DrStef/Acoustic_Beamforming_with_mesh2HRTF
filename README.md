@@ -304,8 +304,8 @@ at \(r = 10\,\mathrm{m}\):
 - a point source placed a few millimetres outside the skin (Mesh2HRTF / NumCalc),
   used as a reciprocal stand-in for a surface microphone.
 
-\(|p|\) is reported on the boundary at \(0^\circ, 30^\circ, 60^\circ, 90^\circ, 120^\circ, 150^\circ, 180^\circ\).
-Overall the match is excellent from \(100\,\mathrm{Hz}\) to \(8\,\mathrm{kHz}\)
+$|p|$ is reported on the unit sphere at $0^\circ, 30^\circ, 60^\circ, 90^\circ, 120^\circ, 150^\circ, 180^\circ$.
+Overall the match is excellent from $100\,\mathrm{Hz}$ to $8\,\mathrm{kHz}$
 
 ---
 
