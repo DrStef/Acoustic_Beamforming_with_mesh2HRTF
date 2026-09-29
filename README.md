@@ -101,12 +101,13 @@ KEMAR-style dummy into a single watertight skin.
 The working file distributed here is an **STL** surface mesh (plus the
 Mesh2HRTF `ObjectMeshes` export).
 
+<div align="center">
 
 | <p align="center"> <img src="./pictures/head001-350x400.png" alt="Four microphone seats" width="150"></p> | <p align="center"> <img src="./pictures/CLeung_VRHeadset_v001.png" alt="Four microphone seats" width="150"></p>   |  <p align="center"> <img src="./pictures/VR_Kemar_TopView.png" alt="Four microphone seats" width="150"></p>    |  <p align="center"> <img src="./pictures/Kemar+VRHeadset_v01.png" alt="Four microphone seats" width="150"></p>    |
 | ---  |  ---  |  ---  | ---   |
-|   |    |  |   |
+| <p align="center"> <i> Kemar CAD (and mesh) </i> </p>    |  <p align="center"> <i> C. Leung VR Headset </i> </p>    |<p align="center"> <i> Kemar + VR headset - Top view  </i> </p>    | <p align="center"> <i> Kemar + VR headset - 3D  </i> </p>    |
 
-
+</div>
 
 
 
