@@ -182,15 +182,6 @@ display). The optimiser is not published; the TFs are.
 
 ---
 
-### 3. Transfer functions mic 1 2 3 4 / $(1,0,0)$
-
-Four reciprocal point sources sit $2\,\mathrm{mm}$ off the skin at the
-microphone seats. Each NumCalc run is the transfer function between
-that seat and the station $\mathbf{r}=(1,0,0)\,\mathrm{m}$, which is
-the MVDR look direction (front, $+x$, $1\,\mathrm{m}$).
-The four curves below are $20\log_{10}|4\pi p (f;\mathbf{r}_{\mathrm{look}})|$
-for $m=1,2,3,4$.
-
 ### 3. Transfer functions at $(1,0,0)$
 
 The four curves are
@@ -206,23 +197,14 @@ Seats and standoff are those of §2.
 
 </div>
 
-Against a trusted reference BEM/FEM run, Mesh2HRTF / NumCalc stays
-within about $0.2\,\mathrm{dB}$ below $400\,\mathrm{Hz}$ on **mic1** and
-**mic2**. The same offset showed up on the rigid-sphere check at small
-$ka$. We treat it as a limitation of the collocation BEM + FMM, not as
-a geometry error.
-
-For array design that offset is not cosmetic. Magnitude mismatch
-between seats degrades a superdirective MVDR pattern in the same band.
-The weights are therefore given a tighter white-noise-gain floor below
-$400$–$500\,\mathrm{Hz}$ ($-25\,\mathrm{dB}$, then a ramp toward
-$-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$). That extra regularisation
-keeps $w_{\mathrm{opt}}(f)$ and the directivity index smooth instead of
-fitting the $0.2\,\mathrm{dB}$ solver noise.
+Below $400\,\mathrm{Hz}$, mic~1 and mic~2 sit about $0.2\,\mathrm{dB}$
+off a reference FEM/BEM run — the same low-$ka$ bias as on the rigid sphere in Part I.
+That mismatch is enough to wrinkle a superdirective MVDR. The WNG floor
+in the next section, is there so the weights follow the physics, not the solver noise.
 
 ---
 
-### 3. Computation of MVDR beamforming weights — DI and WNG
+### 4. Computation of MVDR beamforming weights — DI and WNG
 
 The four TFs at $\mathbf{r}_{\mathrm{look}}=(1,0,0)\,\mathrm{m}$ form the
 steering vector $\mathbf{d}(f)$. The noise field is taken **isotropic**:
@@ -253,7 +235,7 @@ published; the TFs and the example patterns are.
 
 ---
 
-### 4. 3D Directivity Patterns
+### 5. 3D Directivity Patterns
 
 The following 3D polar plots illustrate the spatial directivity and directional gain of the 4-microphone MVDR beamformer at representative frequencies (200 Hz, 1 kHz, and 4 kHz).
 
@@ -270,9 +252,9 @@ These spatial snapshots provide a direct visual counterpart to the frequency-dep
 
 ---
 
-### 5. Directivity v. Frequency (Hz) - Horizontal Plane z=0 
+### 6. Directivity v. Frequency (Hz) - Horizontal Plane z=0 
 
-The directivity pattern in the $z=0$ plane clearly reveals the onset of spatial aliasing starting around $6.5\text{–}7\text{ kHz}$. This behavior is directly governed by the inter-element microphone spacing of $d = 2.5\text{ cm}$. Following the fundamental spatial Nyquist criterion in a free-field environment ($f_c = c / 2d$, where $c \approx 343\text{ m/s}$), the critical aliasing frequency evaluates to approximately $6.86\text{ kHz}$. Beyond this threshold, the spatial sampling interval exceeds $\lambda/2$, leading to the emergence of unwanted grating lobes and a loss of directional integrity in the horizontal plane.
+The directivity pattern in the $z=0$ plane clearly reveals the onset of spatial aliasing starting around $6.5\text{–}7\text{ kHz}$. This behavior is directly governed by the inter-element microphone spacing of $d = 2.5\text{ cm}$. Following the fundamental spatial Nyquist criterion in a free-field environment ($f_c = c / 2d$, where $c \approx 346\text{ m/s}$), the critical aliasing frequency evaluates to approximately $6.9\text{ kHz}$. Beyond this threshold, the spatial sampling interval exceeds $\lambda/2$, leading to the emergence of unwanted grating lobes and a loss of directional integrity in the horizontal plane.
 
 
 
@@ -287,27 +269,24 @@ The directivity pattern in the $z=0$ plane clearly reveals the onset of spatial 
 
 ---
 
-### 6. Reproducing the BEM run
+### 7. Reproducing the BEM run
 
-The Mesh2HRTF project (`NC.inp`, surface mesh, evaluation grid) is in
-`bem/`. NumCalc solves a Burton–Miller system at each frequency.
+Project files (`NC.inp`, skin, $1\,\mathrm{m}$ grid) live in `KemarVR_bem/`.
+$A(k)$ depends on frequency and is rebuilt at every $k$. At one $k$
+the four seats share the same $A$ and differ only by the right-hand
+side; today each `source_1`…`source_4` folder still reassembles $A$
+from scratch. $c=346.18\,\mathrm{m/s}$, FMM cluster $0.05\,\mathrm{m}$,
+standoff $2\,\mathrm{mm}$: see `NC.inp`.
 
-The Helmholtz kernel depends on $k=\omega/c$, so the self-influence
-matrix **must** be rebuilt at every frequency. There is no free lunch
-across the band.
-
-What *can* be reused, and is not yet wired in our scripts: at a **fixed**
-frequency the left-hand side is the same for every microphone seat.
-Only the right-hand side changes (reciprocal point source $2\,\mathrm{mm}$
-off each seat). Today each source folder (`source_1` … `source_4`)
-reassembles $A(k)$ from scratch. A single factorisation of $A(k)$ and
-four RHS solves would cut the four-mic campaign by about $4\times$ per
-frequency. We have not found a clean NumCalc switch for that yet.
-
-Geometry, $c=346.18\,\mathrm{m/s}$, FMM cluster diameter $0.05\,\mathrm{m}$,
-and the $2\,\mathrm{mm}$ standoff are documented in `NC.inp`.
+```bash
+cd KemarVR_bem/NumCalc
+./NumCalc
 
 ---
+
+
+
+
 <br>
 <br> 
 
