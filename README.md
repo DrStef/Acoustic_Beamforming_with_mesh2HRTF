@@ -29,6 +29,9 @@ September 2026  <br>
 
 ### Notebooks
 
+Notebooks will be added
+
+
 ## Overview
 
 Can a free Burton–Miller + FMM solver (Mesh2HRTF / NumCalc) replace a
