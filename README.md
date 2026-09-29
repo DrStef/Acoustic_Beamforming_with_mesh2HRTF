@@ -103,8 +103,8 @@ Mesh2HRTF `ObjectMeshes` export).
 
 
 | <p align="center"> <img src="./pictures/head001-350x400.png" alt="Four microphone seats" width="150"></p> | <p align="center"> <img src="./pictures/CLeung_VRHeadset_v001.png" alt="Four microphone seats" width="150"></p>   |  <p align="center"> <img src="./pictures/VR_Kemar_TopView.png" alt="Four microphone seats" width="150"></p>    |  <p align="center"> <img src="./pictures/Kemar+VRHeadset_v01.png" alt="Four microphone seats" width="150"></p>    |
-|   |    |    |    |
-
+| ---  |  ---  |  ---  | ---   |
+|   |    |  |   |
 
 
 
