@@ -158,7 +158,7 @@ NumCalc solves the Helmholtz equation using a **Burton–Miller collocation BEM*
 
 <div align="center">
 
-| <p align="center"> <img src="./pictures/Blender_Sphere_BEM.png" alt="Sphere validation" width="55%"> </p> | <p align="center"> <img src="./pictures/Sphere_PointSource_1kHz.png" alt="Sphere validation" width="90%"> </p> |
+| <p align="center"> <img src="./pictures/Blender_Sphere_BEMV02.png" alt="Sphere validation" width="55%"> </p> | <p align="center"> <img src="./pictures/Sphere_PointSource_1kHz.png" alt="Sphere validation" width="90%"> </p> |
 | :---: | :---: |
 | <p align="center"> <i> BEM model - Rigid Sphere, radius $a = 0.1\,\mathrm{m}$ <br> 5120 triangular elements, 2562 nodes (Blender) </i> </p> | <p align="center"> <i> Mesh2HRTF: Pressure field on boundary at $1\,\mathrm{kHz}$ <br> point source at $(0.102, 0, 0)\,\mathrm{m}$ </i> </p> |
 
