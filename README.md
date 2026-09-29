@@ -29,62 +29,37 @@ September 2026  <br>
 
 ### Notebooks
 
-
-
 ## Overview
 
-Can a *free* Burton–Miller + FMM solver reliably replace closed-source BEM codes for array design on complex geometries (dummy + headset) within the critical **$100 Hz – 8 kHz$** AR/VR audio band? 
+Can a free Burton–Miller + FMM solver (Mesh2HRTF / NumCalc) replace a
+closed BEM code for array design on a dummy + headset in the
+$100\,\mathrm{Hz}$–$8\,\mathrm{kHz}$ AR/VR band?
 
-This repository provides open BEM data, validation benchmarks, and array processing examples using a small MVDR (Minimum Variance Distortionless Response) beamformer. White-noise gain (WNG) is floored at $-25\,\mathrm{dB}$ below $500\,\mathrm{Hz}$, ramping to $-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$.
+This repo publishes the meshes, the transfer functions, and example
+MVDR patterns. The optimiser is not included. White-noise gain is
+floored at $-25\,\mathrm{dB}$ below $500\,\mathrm{Hz}$, then ramps to
+$-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$.
 
-#### Introduction 
+**Part II** (this page, first) — KEMAR-style dummy + generic VR headset,
+four reciprocal point sources on a $2.5\,\mathrm{cm}$ line, far-field
+TFs toward $\mathbf{r}=(1,0,0)\,\mathrm{m}$, boundary $|p|$, planar
+beampattern, DI and WNG.
 
-Open BEM (Mesh2HRTF / NumCalc) is used to compute microphone transfer
-functions on rigid bodies, then to build a small MVDR beamformer.
+**Part I** — rigid sphere $a=0.10\,\mathrm{m}$, Ico-4 versus Morse,
+point source $2\,\mathrm{mm}$ off the skin, observers at $10\,\mathrm{m}$.
+That run fixes units, standoff, and trust in NumCalc.
 
-The point is practical: can a *free* Burton–Miller + FMM solver replace
-a closed BEM code for array design on a dummy and a headset, in the
-$100\,\mathrm{Hz}$–$8\,\mathrm{kHz}$ band that matters for AR / VR?
+**Part III** (later) — near-field beamforming, three vertical microphones.
 
-We do not publish the optimiser. We publish the meshes, the TFs, and
-example MVDR patterns (white-noise gain floored at $-25\,\mathrm{dB}$
-below $500\,\mathrm{Hz}$, ramping to $-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$).
-
-### Repository Structure
-
-- **Part I — Validation on a Rigid Sphere ($a = 0.10\,\mathrm{m}$):** Compares an Ico-4 mesh against the analytical Morse plane-wave solution using a reciprocal point source ($2\,\mathrm{mm}$ off-skin) and $10\,\mathrm{m}$ observers to establish numerical tolerances and solver trust.
-
-An Ico-4 mesh is compared with the Morse plane-wave solution, using a
-reciprocal point source $2\,\mathrm{mm}$ off the skin and observers at
-$10\,\mathrm{m}$. That run fixes the units, the standoff, and the
-trust we can put in NumCalc.
-
-- **Part II — KEMAR + VR Headset (4-Mic MVDR):** Integrates a KEMAR-style dummy with a generic VR headset. Evaluates a linear $2.5\,\mathrm{cm}$ microphone array, far-field TFs toward $\mathbf{r}=(1,0,0)\,\mathrm{m}$, boundary pressures, and Directivity Index (DI) / WNG performance.
-
-A KEMAR-style dummy is merged with a simplified generic headset. Four
-point sources on a linear $2.5\,\mathrm{cm}$ line feed far-field TFs
-toward $\mathbf{r}=(1,0,0)\,\mathrm{m}$ (fixed look). Boundary $|p|$,
-a planar cut of the beampattern, and DI / WNG vs frequency are the
-public figures.
-
----
-
-## Quick Links & Resources
-
-- **Company Page:** [bloo-audio.com/array51](https://www.bloo-audio.com/array51)
-- **Solver Engine:** [Mesh2HRTF / NumCalc](https://github.com/Any2HRTF/Mesh2HRTF) ([Official Website](https://mesh2hrtf.org/) | [Python API](https://mesh2hrtf.readthedocs.io/))
+- Company: [bloo-audio.com/array51](https://www.bloo-audio.com/array51)
+- Solver: [Mesh2HRTF / NumCalc](https://github.com/Any2HRTF/Mesh2HRTF)
 
 ## Acknowledgements
 
-Development and tools used in this work trace back to foundational acoustic research collaborations:
-- **Mesh2HRTF Pipeline:** Developed at the Acoustics Research Institute (ÖAW, Vienna) by Harald Ziegelwanger, Wolfgang Kreuzer, and Piotr Majdak, with ongoing contributions from Fabian Brinkmann (TU Berlin) and Katharina Pollack (ARI).
-
-This work uses **Mesh2HRTF / NumCalc**
-(https://github.com/Any2HRTF/Mesh2HRTF).
-
-Development started at the Acoustics Research Institute (ÖAW, Vienna)
-with Harald Ziegelwanger, Wolfgang Kreuzer and Piotr Majdak, and
-continues with Fabian Brinkmann (TU Berlin) and Katharina Pollack (ARI).
+Mesh2HRTF / NumCalc started at ARI (ÖAW, Vienna) with Harald
+Ziegelwanger, Wolfgang Kreuzer and Piotr Majdak, and continues with
+Fabian Brinkmann (TU Berlin) and Katharina Pollack (ARI).
+<https://github.com/Any2HRTF/Mesh2HRTF>
 
 ### Key References
 
@@ -95,8 +70,6 @@ continues with Fabian Brinkmann (TU Berlin) and Katharina Pollack (ARI).
 
 <br>
 <br>
-
-
 
 
 ## Part II: Microphone array I — far field MVDR beamforming <br> Fixed look direction $(1,0,0) m$
