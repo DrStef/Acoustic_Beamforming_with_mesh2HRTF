@@ -112,9 +112,6 @@ Mesh2HRTF `ObjectMeshes` export).
 
 </div>
 
-
-
-
 #### Coordinates and units
 
 Units are **metres**.
@@ -151,30 +148,22 @@ Beamforming examples (MVDR, near-field) can be built from these TFs; **the optim
 
 Company page: [bloo-audio.com/array51](https://www.bloo-audio.com/array51/)
 
-#### What we computed here
+### 2. Linear microphone array — look direction $(1,0,0) m$
 
-- Reciprocal **point sources** at four headset microphone positions (right-side linear array, 2.5 cm spacing)
-- Evaluation on a 1 m sphere (~1850 points)
-- Check against a reference FEM/BEM model: magnitude within ~0.2 dB, phase matched after the \(e^{\pm j\omega t}\) convention (`-angle` on NumCalc)
+Four reciprocal point sources sit $2\,\mathrm{mm}$ off the skin on the
+right side of the headset, $2.5\,\mathrm{cm}$ apart, on a linear
+end-fire line. Each NumCalc run is the transfer function $H_m(f;\mathbf{r})$
+between seat $m=1,2,3,4$ and the field. The design look is the
+$1\,\mathrm{m}$ station $\mathbf{r}=(1,0,0)\,\mathrm{m}$ ($+x$, nose).
+The beam is **fixed frontal**: one steering vector toward that point.
+The rest of the $\sim 1850$-point sphere is only used to plot the pattern
+and to build the isotropic covariance.
 
-
-
-KEMAR-style dummy + generic VR headset (see Geometry). Four reciprocal
-**point sources** sit $2\,\mathrm{mm}$ off the skin at the microphone
-seats, $2.5\,\mathrm{cm}$ apart on a **linear** end-fire line along the
-headset. By reciprocity, each BEM run is a transfer function from that
-seat to the field — or from a field point back to the seat.
-
-The design look is the far-field / $1\,\mathrm{m}$ station
-$\mathbf{r}_{\mathrm{look}}=(1,0,0)\,\mathrm{m}$ (nose / $+x$).
-Because the array is linear and aligned with the look, the beam is a
-**fixed frontal** beam: one steering vector $\mathbf{d}(f)$ toward
-$(1,0,0)$, no electronic scan in this example. Side and back directions
-are evaluated on the $1\,\mathrm{m}$ sphere only to plot the pattern.
-
-TFs: $H_m(f;\mathbf{r})$ at microphones $m=1,2,3,4$. MVDR weights use
-these TFs with a white-noise-gain floor ($-25\,\mathrm{dB}$ below
-$500\,\mathrm{Hz}$, ramping to $-30\,\mathrm{dB}$ above $1\,\mathrm{kHz}$).
+Against a reference FEM/BEM run, magnitude stays within about
+$0.2\,\mathrm{dB}$; phase matches after the $e^{\pm j\omega t}$
+convention (`-angle` on NumCalc). MVDR uses these TFs with a WNG floor
+of $-25\,\mathrm{dB}$ below $500\,\mathrm{Hz}$, ramping to $-30\,\mathrm{dB}$
+above $1\,\mathrm{kHz}$
 
 
 <div align="center">
@@ -193,14 +182,21 @@ display). The optimiser is not published; the TFs are.
 
 ---
 
-### 2. Transfer functions mic 1 2 3 4 / $(1,0,0)$
+### 3. Transfer functions mic 1 2 3 4 / $(1,0,0)$
 
 Four reciprocal point sources sit $2\,\mathrm{mm}$ off the skin at the
 microphone seats. Each NumCalc run is the transfer function between
 that seat and the station $\mathbf{r}=(1,0,0)\,\mathrm{m}$, which is
 the MVDR look direction (front, $+x$, $1\,\mathrm{m}$).
-The four curves below are $20\log_{10}|4\pi H_m(f;\mathbf{r}_{\mathrm{look}})|$
+The four curves below are $20\log_{10}|4\pi p (f;\mathbf{r}_{\mathrm{look}})|$
 for $m=1,2,3,4$.
+
+### 3. Transfer functions at $(1,0,0)$
+
+The four curves are
+$20\log_{10}\bigl|4\pi p (f;\mathbf{r}_{\mathrm{look}})\bigr|$
+for $m=1,2,3,4$, look $\mathbf{r}=(1,0,0)\,\mathrm{m}$.
+Seats and standoff are those of §2.
 
 <div align="center">
 
