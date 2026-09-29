@@ -576,16 +576,6 @@ When optimising two conflicting objectives (Directivity Index versus White Noise
 
 In our implementation the Pareto front is traced simply by sweeping the diagonal-loading parameter $\alpha$ (or $\sigma^2$) and recording the resulting (DI, WNG) pairs.
 
-### 6. Summary for the Kemar + VR Headset study
-
-| Beamformer              | Constraints              | Typical use                     | Robustness control      |
-|-------------------------|--------------------------|---------------------------------|-------------------------|
-| MVDR                    | $\mathbf{w}^H\mathbf{d}_0=1$ | Maximum directivity             | Diagonal loading $\alpha$ |
-| MVDR + WNG constraint   | + $\text{WNG}\ge\text{WNG}_{\min}$ | Robust look-direction beam     | Sliding $\alpha$         |
-| LCMV (look + null)      | $\mathbf{w}^H\mathbf{d}_0=1 <br> \mathbf{w}^H\mathbf{d}_{180}=0$ | Look beam with rear null       | Fixed or sliding $\alpha$ |
-| LCMV (Noise Channel)    | $\mathbf{w}^H\mathbf{d}_0=0$, <br> $\mathbf{w}^H\mathbf{d}_{180}=1$ | Noise reference / rear lobe    | Fixed $\alpha$ (recommended) |
-
-All of the above have been implemented and validated on the 29-microphone Kemar + VR Headset BEM model (100 Hz – 4000 Hz).
 
 
 
