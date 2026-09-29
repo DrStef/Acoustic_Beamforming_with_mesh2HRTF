@@ -98,7 +98,7 @@ A high-quality generic VR-headset CAD by **Chris Leung** on GrabCAD:
 https://grabcad.com/chris.leung-5/models
 
 The headset was simplified and edited: the headband was extended around the head, and reduced to about
-$5$–$6\,\mathrm{cm}$ width. The edited headset was then merged with the
+$5–6\,\mathrm{cm}$ width. The edited headset was then merged with the
 KEMAR-style dummy into a single watertight skin.
 
 The working file distributed here is an **STL** surface mesh (plus the
