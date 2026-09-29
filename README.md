@@ -97,7 +97,7 @@ KEMAR-style dummy CAD developed at **ICAR**
 A high-quality generic VR-headset CAD by **Chris Leung** on GrabCAD:
 https://grabcad.com/chris.leung-5/models
 
-The headset was simplified and edited: the headband was reduced to about
+The headset was simplified and edited: the headband was extended around the head, and reduced to about
 $5$–$6\,\mathrm{cm}$ width. The edited headset was then merged with the
 KEMAR-style dummy into a single watertight skin.
 
@@ -122,14 +122,7 @@ Units are **metres**.
   **left** or **right** when you check in Blender).
 - $+z$: up.
 
-The published STL is rebuilt from Mesh2HRTF `Nodes.txt` / `Elements.txt`
-with a neutral header (not a vendor export).
-
-The skin is **not** a topological sphere. A gap between the headset strap
-and the head, just forward of each pinna, makes two handles
-(homeomorphic to a sphere with two handles, genus 2). BEM treats the
-surface as a rigid sound-hard boundary; the strap–head tunnels are part
-of the exterior domain. 
+The skin is **not** a topological sphere. A gap between the headset strap and the head, just forward of each pinna, makes two handles (homeomorphic to a sphere with two handles, genus 2). BEM treats the surface as a rigid sound-hard boundary; the strap–head tunnels are part of the exterior domain. 
 
 #### What the mesh is for
 
@@ -138,31 +131,20 @@ of the exterior domain.
 - binaural beamforming
 - Ambisonics / array processing on a dummy + headset
 
-Microphone examples in this repo use a small linear subset on one side of
-the headset (2.5 cm spacing). Reciprocal point sources sit $2\,\mathrm{mm}$
-off the skin.
+Microphone examples in this repo use a small linear subset on one side of the headset (2.5 cm spacing). Reciprocal point sources sit $2\,\mathrm{mm}$ off the skin.
 
-
-This repository documents **validation** and **far-field TFs** for a 4-microphone subset of the array.  
-Beamforming examples (MVDR, near-field) can be built from these TFs; **the optimizer is not published**.
+This repository documents **validation** and **far-field TFs** for a 4-microphone subset of the array. Beamforming examples (MVDR, near-field) can be built from these TFs; **the optimizer is not published**.
 
 Company page: [bloo-audio.com/array51](https://www.bloo-audio.com/array51/)
 
 ### 2. Linear microphone array — look direction $(1,0,0) m$
 
-Four reciprocal point sources sit $2\,\mathrm{mm}$ off the skin on the
-right side of the headset, $2.5\,\mathrm{cm}$ apart, on a linear
-end-fire line. Each NumCalc run is the transfer function $H_m(f;\mathbf{r})$
-between seat $m=1,2,3,4$ and the field. The design look is the
-$1\,\mathrm{m}$ station $\mathbf{r}=(1,0,0)\,\mathrm{m}$ ($+x$, nose).
-The beam is **fixed frontal**: one steering vector toward that point.
-The rest of the $\sim 1850$-point sphere is only used to plot the pattern
-and to build the isotropic covariance.
+Four reciprocal point sources sit $2\,\mathrm{mm}$ off the skin on the right side of the headset, $2.5\,\mathrm{cm}$ apart, on a linear end-fire line. Each NumCalc run is the transfer function $H_m(f;\mathbf{r})$ between seat $m=1,2,3,4$ and the field. 
+The design look is the $1\,\mathrm{m}$ station $\mathbf{r}=(1,0,0)\,\mathrm{m}$ ($+x$, nose). The beam is **fixed frontal**: one steering vector toward that point.
+The rest of the $\sim 1850$-point unit sphere is only used to plot the pattern and to build the isotropic covariance.
 
-Against a reference FEM/BEM run, magnitude stays within about
-$0.2\,\mathrm{dB}$; phase matches after the $e^{\pm j\omega t}$
-convention (`-angle` on NumCalc). MVDR uses these TFs with a WNG floor
-of $-25\,\mathrm{dB}$ below $500\,\mathrm{Hz}$, ramping to $-30\,\mathrm{dB}$
+Against a reference FEM/BEM run, magnitude stays within about $0.2\,\mathrm{dB}$; phase matches after the $e^{\pm j\omega t}$
+convention (`-angle` on NumCalc). MVDR uses these TFs with a WNG floor of $-25\,\mathrm{dB}$ below $500\,\mathrm{Hz}$, ramping to $-30\,\mathrm{dB}$
 above $1\,\mathrm{kHz}$
 
 
