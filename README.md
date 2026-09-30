@@ -371,9 +371,9 @@ The Wiki guideline suggests a source standoff $\geq 0.3\,\mathrm{mm}$ outside th
 We compare two fields that reciprocity says should agree closely:
 
 - the analytical rigid-sphere scattering of a plane wave (Morse []);
-- a Mesh2HRTF / NumCalc BEM run with a point source $2\,\mathrm{mm}$ outside the skin, pressure sampled at $r = 10\,\mathrm{m}$ from $0^\circ$ to $180^\circ$ in a meridional plane.
+- a Mesh2HRTF / NumCalc BEM run with a point source $2 \mathrm{mm}$ outside the skin, pressure sampled at $r = 10\,\mathrm{m}$ from $0^\circ$ to $180^\circ$ in a meridional plane.
 
-The two problems are not identical, but the far-field patterns should match. They do, to a fraction of a decibel over most of the $100 \mathrm{Hz} – 8\mathrm{kHz}$ band.
+The two problems are not identical, but the far-field patterns should match. They do, to a fraction of a decibel over most of the $100 \mathrm{Hz}-8\mathrm{kHz}$ band.
 
 
 |<p align="center"> <img src="./pictures/Sphere_PresPlaneWav_001.png" alt="Sphere validation" width="80%">  </p>  |<p align="center"> <img src="./pictures/Sphere_TFs_FarField_001.png" alt="Sphere validation" width="90%">  </p> |
@@ -412,7 +412,7 @@ FMM cluster diameter $0.05\,\mathrm{m}$ vs $0.025\,\mathrm{m}$ has no significan
 on this Ico-5 mesh.
 
 **Parameter that *does* matter.**  
-Point-source standoff from the skin. After a $5 / 2 / 1\,\mathrm{mm}$ scan on $+x$,**$2\,\mathrm{mm}$** is the working choice (clean high-frequency baffle step, acceptable low-frequency collapse). The same offset is used later for headset microphone positions.
+Point-source standoff from the skin. After a $5 / 2 / 1\,\mathrm{mm}$ scan on $+x$, **$2 \mathrm{mm}$** is the working choice (clean high-frequency baffle step, acceptable low-frequency collapse). The same offset is used later for headset microphone positions.
 
 
 - **Mesh Topology (Ico vs. UV):** Elongated polar triangles on UV meshes distort low frequencies ($100\,\mathrm{Hz}$) and pole calculations; Ico triangulation avoids this entirely.
