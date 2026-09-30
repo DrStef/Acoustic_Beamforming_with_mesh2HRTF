@@ -397,9 +397,9 @@ At $ka \approx 0.1$ the Mesh2HRTF far-field samples at $r = 10\,\mathrm{m}$ are:
 
 The angular spread is **$0.30\,\mathrm{dB}$**. The analytical plane-wave solution (and the reference BEM) is essentially isotropic at this $ka$. The bias is therefore numerical: Burton–Miller collocation and FMM / quadrature at low frequency, not the $2\,\mathrm{mm}$ standoff and not the $10\,\mathrm{m}$ station.
 
-**Low frequency** (\(50\)–\(100\,\mathrm{Hz}\), \(ka \approx 0.1\)–\(0.2\)).  
-The analytical field is essentially isotropic (\(\sim 0\,\mathrm{dB}\) spread across angles).
-Mesh2HRTF shows a slightly larger angular variance, about \(0.3\)–\(0.4\,\mathrm{dB}\).
+**Low frequency** ($50–100 \mathrm{Hz}$, $ka \approx 0.1 – 0.2$).  
+The analytical field is essentially isotropic ($\sim 0 \mathrm{dB}$ spread across angles).
+Mesh2HRTF shows a slightly larger angular variance, about $0.3–0.4 \mathrm{dB}$.
 
 **High frequency** (around \(ka = 10\)).  
 On the illuminated side (\(0^\circ\) and \(30^\circ\)) the computed amplitude sags by about \(0.2\,\mathrm{dB}\).
