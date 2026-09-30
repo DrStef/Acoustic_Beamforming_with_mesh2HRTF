@@ -156,12 +156,6 @@ above $1\,\mathrm{kHz}$
 
 </div>
 
-
-
-Boundary $|p|$ for one $2\,\mathrm{mm}$ point source (vertex-interpolated
-display). The optimiser is not published; the TFs are.
-
-
 ---
 
 ### 3. Transfer functions at $(1,0,0)$
