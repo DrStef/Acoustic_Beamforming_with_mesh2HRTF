@@ -424,8 +424,8 @@ Point-source standoff from the skin. After a $5 / 2 / 1\,\mathrm{mm}$ scan on $+
 ### 5. Practical Summary & Takeaways
 
 Treat Mesh2HRTF as a solid open BEM tool for research and array design —
-MVDR / LCMV, binaural beamforming, and SSL — in the **\(100\)–\(8000\,\mathrm{Hz}\)**
-band that matters for AR/VR devices. Use a \(\sim 2\,\mathrm{mm}\) reciprocal
+MVDR / LCMV, binaural beamforming, and SSL — in the **$100 – 8000 \mathrm{Hz}$**
+band that matters for AR/VR devices. Use a $\sim 2 \mathrm{mm}$ reciprocal
 point source for surface microphones, keep an eye on the low-frequency angular
 spread and the mild high-frequency look-direction loss, and add a targeted
 check when a new mesh or frequency grid is introduced.
