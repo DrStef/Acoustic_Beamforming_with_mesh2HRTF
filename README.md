@@ -416,7 +416,7 @@ Point-source standoff from the skin. After a $5 / 2 / 1\,\mathrm{mm}$ scan on $+
 
 
 - **Mesh Topology (Ico vs. UV):** Elongated polar triangles on UV meshes distort low frequencies ($100\,\mathrm{Hz}$) and pole calculations; Ico triangulation avoids this entirely.
-- **Piston vs. Point Sources:** A piston radiator requires area factor $S$, whereas a point source uses $P_0 = 1$ (i.e., $e^{ikR}/(4\pi R)$). At $1\,\mathrm{m}$, $20\log_{10}(4\pi) \approx +22\,\mathrm{dB}$ is required to reach $1\,\mathrm{Pa}$.
+- **Piston vs. Point Sources:** A piston radiator requires area factor $S$, whereas a point source uses $P_0 = 1$ (i.e., $ \frac{e^{ikR}}{(4\pi R)} $). At $1\,\mathrm{m}$, $20\log_{10}(4\pi) \approx +22\,\mathrm{dB}$ is required to reach $1\,\mathrm{Pa}$.
 - **High-Frequency Discretization:** At $8\,\mathrm{kHz}$, the mesh is slightly coarser than $\lambda/6$ ($\approx\lambda/5.75$). Burton–Miller collocation requires adequate elements per wavelength at high $ka$, meaning the minor $\sim 0.2\,\mathrm{dB}$ drop at $0^\circ$ and $30^\circ$ toward $6\text{–}8\,\mathrm{kHz}$ stems from numerical quadrature rather than geometry error. (A 5-subdivision mesh with $20\,480$ faces would push $\lambda/6$ past $8\,\mathrm{kHz}$).
 
 ---
