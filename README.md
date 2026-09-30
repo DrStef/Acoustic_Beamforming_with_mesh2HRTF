@@ -324,8 +324,8 @@ The rigid sphere and its icosahedral (Ico) mesh were generated in Blender and ex
 ####  BEM mesh
 
 At $8\,\mathrm{kHz}$ the mesh is slightly coarser than $\lambda/6$ ($\approx\lambda/5.75$). Burton–Miller collocation BEM often needs **more than
-six elements per wavelength** at high $ka$, so part of the residual mismatch above $ka \approx 10$ ($\approx 5.5\,\mathrm{kHz}$) — in particular the
-$0.2\,\mathrm{dB}$ drop at $0^\circ$ and $30^\circ$ toward $6$–$8\,\mathrm{kHz}$ — is consistent with discretisation / quadrature rather than a geometry error. A five-subdivision Ico mesh ($20\,480$ faces, $h \approx 3.8\,\mathrm{mm}$) would put $\lambda/6$ well above $8\,\mathrm{kHz}$ if a tighter high-frequency check is required.
+six elements per wavelength** at high $ka$, so part of the residual mismatch above $ka \approx 10$ ($\approx 5.5 \mathrm{kHz}$) — in particular the
+$0.2 \mathrm{dB}$ drop at $0^\circ$ and $30^\circ$ toward $6 - 8\,\mathrm{kHz}$ — is consistent with discretisation / quadrature rather than a geometry error. A five-subdivision Ico mesh ($20,480$ faces, $h \approx 3.8 \mathrm{mm}$) would put $\lambda/6$ well above $8 \mathrm{kHz}$ if a tighter high-frequency check is required.
 
 #### Solver Engine (NumCalc)
 
@@ -362,7 +362,7 @@ The Wiki guideline suggests a source standoff $\geq 0.3\,\mathrm{mm}$ outside th
 
 </div>
 
-> **Working Choice:** **$2\,\mathrm{mm}$**. This exact offset is carried over later for the VR headset microphone positions.
+> **Working Choice:** **$2 \mathrm{mm}$**. This exact offset is carried over later for the VR headset microphone positions.
 
 ---
 
