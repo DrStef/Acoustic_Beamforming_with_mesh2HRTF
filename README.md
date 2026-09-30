@@ -437,17 +437,6 @@ That matters for **low-frequency array design**. In a superdirective beamformer 
 <br>
 <br>
 
-
-
-
-
-
-
-
-
-
-
-
 ## References
 
 Ziegelwanger, Majdak, Kreuzer, JASA 2015  
@@ -460,6 +449,8 @@ Princeton University Press, Princeton, NJ, 1986
 (reprint of the 1968 McGraw-Hill edition).
 ISBN 0-691-02401-4.
 
+<br>
+<br>
 
 ##  APPENDIX:  Robust Beamforming: MVDR, WNG Constraint & LCMV
 
