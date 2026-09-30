@@ -402,20 +402,17 @@ The analytical field is essentially isotropic ($\sim 0 \mathrm{dB}$ spread acros
 Mesh2HRTF shows a slightly larger angular variance, about $0.3–0.4 \mathrm{dB}$.
 
 **High frequency** (around \(ka = 10\)).  
-On the illuminated side (\(0^\circ\) and \(30^\circ\)) the computed amplitude sags by about \(0.2\,\mathrm{dB}\).
+On the illuminated side ($0^\circ$ and $30^\circ$) the computed amplitude sags by about $0.2 \mathrm{dB}$.
 The same droop appears in other Mesh2HRTF validations. Likely causes are the
 Burton–Miller discretisation, FMM clustering, and/or the quadrature — not the
 geometry itself.
 
 **Parameters that do *not* move the look-direction TF.**  
-FMM cluster diameter \(0.05\,\mathrm{m}\) vs \(0.025\,\mathrm{m}\) has no significant effect
+FMM cluster diameter $0.05\,\mathrm{m}$ vs $0.025\,\mathrm{m}$ has no significant effect
 on this Ico-5 mesh.
 
 **Parameter that *does* matter.**  
-Point-source standoff from the skin. After a \(5 / 2 / 1\,\mathrm{mm}\) scan on \(+x\),
-**\(2\,\mathrm{mm}\)** is the working choice (clean high-frequency baffle step,
-acceptable low-frequency collapse). The same offset is used later for headset
-microphone positions.
+Point-source standoff from the skin. After a $5 / 2 / 1\,\mathrm{mm}$ scan on $+x$,**$2\,\mathrm{mm}$** is the working choice (clean high-frequency baffle step, acceptable low-frequency collapse). The same offset is used later for headset microphone positions.
 
 
 - **Mesh Topology (Ico vs. UV):** Elongated polar triangles on UV meshes distort low frequencies ($100\,\mathrm{Hz}$) and pole calculations; Ico triangulation avoids this entirely.
