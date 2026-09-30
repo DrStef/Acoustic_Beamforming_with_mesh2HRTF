@@ -373,7 +373,7 @@ We compare two fields that reciprocity says should agree closely:
 - the analytical rigid-sphere scattering of a plane wave (Morse []);
 - a Mesh2HRTF / NumCalc BEM run with a point source $2\,\mathrm{mm}$ outside the skin, pressure sampled at $r = 10\,\mathrm{m}$ from $0^\circ$ to $180^\circ$ in a meridional plane.
 
-The two problems are not identical, but the far-field patterns should match. They do, to a fraction of a decibel over most of the $100\,\mathrm{Hz}$–$8\,\mathrm{kHz}$ band.
+The two problems are not identical, but the far-field patterns should match. They do, to a fraction of a decibel over most of the $100 \mathrm{Hz} – 8\mathrm{kHz}$ band.
 
 
 |<p align="center"> <img src="./pictures/Sphere_PresPlaneWav_001.png" alt="Sphere validation" width="80%">  </p>  |<p align="center"> <img src="./pictures/Sphere_TFs_FarField_001.png" alt="Sphere validation" width="90%">  </p> |
